@@ -1,579 +1,629 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hao114 · 冲浪起航（100+网址）</title>
-    <style>
-        /* 极简重置 + HTTP 1.1 怀旧感 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hao114.com - 好上网，从这里开始</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #c0c0c0;
+  font-family: "宋体", SimSun, serif;
+  font-size: 12px;
+  color: #000;
+}
+a { color: #00f; text-decoration: none; }
+a:visited { color: #800080; }
+a:hover { text-decoration: underline; color: #f00; }
 
-        body {
-            background: #eef1f5;
-            font-family: 'Helvetica Neue', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
-            line-height: 1.4;
-            color: #1a2b3c;
-            padding: 0 1rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+#top {
+  background: linear-gradient(to right, #003399, #0066cc, #003399);
+  color: #fff;
+  text-align: center;
+  padding: 6px 0 4px 0;
+  border-bottom: 2px solid #ff6600;
+}
+#top .logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffff00;
+  font-family: Arial Black, sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px #000;
+}
+#top .slogan {
+  font-size: 11px;
+  color: #cce;
+  margin-top: 2px;
+}
 
-        .container {
-            max-width: 1200px;       /* 加宽以容纳四列 */
-            margin: 1.8rem auto 2rem auto;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(2px);
-            border-radius: 28px;
-            box-shadow: 0 15px 30px -12px rgba(0,20,30,0.2), 0 0 0 1px rgba(0,0,0,0.02);
-            padding: 2rem 1.8rem 2.5rem 1.8rem;
-            border: 1px solid rgba(255,255,255,0.6);
-        }
+#search-bar {
+  background: #ffffcc;
+  border-bottom: 1px solid #999;
+  padding: 6px;
+  text-align: center;
+}
+#search-bar select {
+  font-size: 12px;
+  border: 1px solid #666;
+  height: 22px;
+}
+#search-bar input[type=text] {
+  width: 320px;
+  height: 20px;
+  border: 1px solid #666;
+  font-size: 12px;
+  padding: 0 2px;
+}
+#search-bar input[type=submit] {
+  height: 22px;
+  font-size: 12px;
+  border: 1px outset #999;
+  background: #ddd;
+  cursor: pointer;
+  padding: 0 8px;
+}
 
-        /* 头部 */
-        .header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            border-bottom: 2px solid #b8c6d4;
-            padding-bottom: 0.6rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
+.marquee-bar {
+  background: #ffe0b2;
+  border-top: 1px solid #ffaa00;
+  border-bottom: 1px solid #ffaa00;
+  padding: 3px 6px;
+  font-size: 11px;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
-        .hao114 {
-            font-size: 3.4rem;
-            font-weight: 560;
-            letter-spacing: -2px;
-            color: #103456;
-            line-height: 1;
-            text-shadow: 3px 3px 0 #dee5ed;
-        }
+#main {
+  display: table;
+  width: 100%;
+}
+#left-nav {
+  display: table-cell;
+  width: 120px;
+  background: #e8e8f8;
+  border-right: 1px solid #aaa;
+  vertical-align: top;
+  padding: 4px 0;
+}
+#left-nav .cat-title {
+  background: #003399;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 6px;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+#left-nav a {
+  display: block;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-bottom: 1px dotted #ccc;
+}
+#left-nav a:hover { background: #ccddff; }
 
-        .hao114 small {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #3d5e7a;
-            margin-left: 10px;
-            letter-spacing: 0px;
-        }
+#content {
+  display: table-cell;
+  vertical-align: top;
+  padding: 4px 6px;
+}
 
-        .slogan {
-            background: #e3eaf2;
-            padding: 0.4rem 1rem;
-            border-radius: 60px;
-            font-size: 0.95rem;
-            border: 1px solid #b6ccde;
-            color: #1b3b59;
-        }
+.section {
+  border: 1px solid #99aacc;
+  margin-bottom: 8px;
+  background: #fff;
+}
+.section-head {
+  background: #3366cc;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+.section-body {
+  padding: 4px 6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.site-item {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 3px 4px;
+  border-bottom: 1px dotted #eee;
+}
+.site-item a { font-size: 12px; font-weight: bold; }
+.site-item .desc { font-size: 11px; color: #666; }
 
-        /* 导航网格 — 四列，适应更多卡片 */
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem 1.2rem;
-            margin: 1.8rem 0;
-        }
+#right {
+  display: table-cell;
+  width: 155px;
+  vertical-align: top;
+  padding: 4px;
+  background: #f5f5f5;
+  border-left: 1px solid #bbb;
+}
+.right-box {
+  border: 1px solid #aabbcc;
+  margin-bottom: 8px;
+  background: #fff;
+}
+.right-box-head {
+  background: #669900;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+}
+.right-box-body { padding: 4px 6px; }
+.right-box-body a {
+  display: block;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ddd;
+  font-size: 12px;
+}
 
-        /* 卡片：内部分两列链接 */
-        .nav-card {
-            background: #ffffffd9;
-            backdrop-filter: blur(4px);
-            border-radius: 24px;
-            padding: 1rem 0.8rem 0.8rem 0.8rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02), 0 6px 12px -8px #2b4a6b1a;
-            border: 1px solid #e3ecf5;
-            transition: all 0.15s ease;
-        }
+#clock {
+  background: #003399;
+  color: #ffff00;
+  font-size: 12px;
+  text-align: center;
+  padding: 4px;
+  font-family: "Courier New", monospace;
+}
 
-        .nav-card:hover {
-            border-color: #abc0d3;
-            box-shadow: 0 12px 18px -12px #244b6e, 0 0 0 1px rgba(82, 133, 192, 0.3);
-            transform: translateY(-2px);
-        }
+.tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+.tool-btn {
+  background: #3366cc;
+  color: #fff;
+  border: 1px outset #6699ff;
+  padding: 3px 6px;
+  font-size: 11px;
+  text-align: center;
+  cursor: pointer;
+  font-family: "宋体", SimSun, serif;
+  text-decoration: none;
+  display: inline-block;
+}
+.tool-btn:visited { color: #fff; }
+.tool-btn:hover { background: #ff6600; color: #fff; text-decoration: none; }
 
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.1rem;
-            filter: drop-shadow(0 2px 2px #b7c9db);
-            text-align: left;
-            padding-left: 0.3rem;
-        }
+#footer {
+  background: #333;
+  color: #ccc;
+  text-align: center;
+  padding: 6px;
+  font-size: 11px;
+  border-top: 2px solid #666;
+}
+#footer a { color: #99ccff; font-size: 11px; }
 
-        .card-title {
-            font-weight: 650;
-            font-size: 1.1rem;
-            color: #103456;
-            border-left: 4px solid #7fa1c3;
-            padding-left: 0.6rem;
-            margin: 0.3rem 0 0.7rem 0;
-            letter-spacing: -0.3px;
-        }
+/* ===== 移动端适配 ===== */
+@media (max-width: 640px) {
+  body { font-size: 13px; }
 
-        /* 链接区域采用两列网格 */
-        .link-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.2rem 0.7rem;
-            margin-bottom: 0.2rem;
-        }
+  #top .logo { font-size: 22px; }
+  #top .slogan { font-size: 10px; }
 
-        .link-grid a {
-            text-decoration: none;
-            color: #1f4a7a;
-            font-size: 0.83rem;
-            padding: 0.22rem 0.3rem;
-            border-radius: 14px;
-            background: #f4f9ff;
-            border: 1px solid transparent;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            transition: background 0.15s;
-            display: block;
-        }
+  /* 搜索栏竖排 */
+  #search-bar { padding: 8px 6px; }
+  #search-bar select { width: 100%; height: 32px; font-size: 13px; box-sizing: border-box; display: block; margin-bottom: 6px; }
+  #search-bar input[type=text] { width: 100%; height: 32px; font-size: 13px; box-sizing: border-box; display: block; margin-bottom: 6px; }
+  #search-bar input[type=submit] { width: 100%; height: 36px; font-size: 14px; display: block; }
+  #search-bar .search-links { display: block; margin-top: 6px; font-size: 12px; }
 
-        .link-grid a:hover {
-            background: #d9e9ff;
-            border-color: #98b9da;
-            color: #0b2b4a;
-            text-decoration: underline dotted #285e8e;
-        }
+  /* 三列变单列 */
+  #main { display: block; }
+  #left-nav { display: none; } /* 移动端隐藏左侧，改用顶部快捷按钮 */
+  #content { display: block; width: 100%; padding: 4px; box-sizing: border-box; }
+  #right { display: block; width: 100%; box-sizing: border-box; padding: 4px; border-left: none; border-top: 1px solid #bbb; }
 
-        /* 对于一些长名字折行处理 */
-        .link-grid a.wrap-allowed {
-            white-space: normal;
-            word-break: break-word;
-            line-height: 1.3;
-        }
+  /* 右侧改为横向两列 */
+  #right .right-box { display: inline-block; width: calc(50% - 6px); vertical-align: top; margin: 3px; box-sizing: border-box; }
 
-        /* 快速工具条 */
-        .quick-tools {
-            margin: 2.2rem 0 1rem 0;
-            background: #dee8f2;
-            border-radius: 60px;
-            padding: 1rem 1.8rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #c0d2e3;
-        }
+  /* 时钟在移动端变成一行 */
+  #clock { font-size: 12px; padding: 6px; }
 
-        .search-engines {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
+  /* 卡片改为2列 */
+  .site-item { width: 50%; }
 
-        .search-item {
-            display: flex;
-            align-items: center;
-            background: white;
-            border-radius: 40px;
-            padding: 0.2rem 1.2rem 0.2rem 0.8rem;
-            box-shadow: 0 1px 4px #b1c5da;
-        }
+  /* 工具按钮更大，更好点击 */
+  .tool-btn { padding: 7px 8px; font-size: 12px; }
+  .tool-row { gap: 4px; }
 
-        .search-item span {
-            font-size: 1.2rem;
-            margin-right: 5px;
-        }
+  /* 左侧导航改为移动端浮动菜单 */
+  #mobile-nav-toggle {
+    display: block;
+    background: #003399;
+    color: #fff;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: "宋体", SimSun, serif;
+  }
+  #mobile-nav-panel {
+    display: none;
+    background: #e8e8f8;
+    border-bottom: 1px solid #aaa;
+    padding: 4px 0;
+  }
+  #mobile-nav-panel.open { display: block; }
+  #mobile-nav-panel .cat-title {
+    background: #003399;
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+  #mobile-nav-panel a {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-bottom: 1px dotted #ccc;
+    color: #00f;
+    width: calc(50% - 20px);
+    box-sizing: border-box;
+  }
 
-        .search-item a {
-            text-decoration: none;
-            color: #123f64;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-left: 1px solid #c0d2e3;
-            padding-left: 8px;
-        }
+  /* 页脚简化 */
+  #footer { font-size: 11px; padding: 8px 4px; }
+}
 
-        .search-item a:hover {
-            color: #002856;
-            text-decoration: underline;
-        }
-
-        .zeitgeist {
-            background: #f2f7fd;
-            padding: 0.3rem 1.5rem;
-            border-radius: 40px;
-            border: 1px solid #92afcc;
-            font-size: 0.9rem;
-            color: #173e5f;
-        }
-
-        .zeitgeist span {
-            background: #c2d9f0;
-            padding: 0.1rem 0.6rem;
-            border-radius: 30px;
-            margin: 0 0.2rem;
-            font-weight: 600;
-        }
-
-        .counter-strip {
-            background: #1d3a52;
-            color: #aae0e0;
-            font-family: 'Courier New', monospace;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            border: 1px solid #458585;
-        }
-
-        .footer {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #5f748b;
-            border-top: 1px dashed #b9cbdd;
-            padding-top: 1.5rem;
-        }
-
-        .footer a {
-            color: #2f6290;
-            text-decoration: none;
-            margin: 0 5px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline wavy;
-        }
-
-        @media (max-width: 900px) {
-            .nav-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 640px) {
-            .nav-grid { grid-template-columns: repeat(2, 1fr); }
-            .hao114 { font-size: 2.5rem; }
-            .quick-tools { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-        }
-
-        @media (max-width: 420px) {
-            .nav-grid { grid-template-columns: 1fr; }
-        }
-
-        /* 小标签点缀（减少占用，仅在部分卡片保留） */
-        .minitag {
-            font-size: 0.65rem;
-            background: #e1ebf3;
-            color: #3f6185;
-            border-radius: 12px;
-            padding: 0.08rem 0.4rem;
-            margin-left: 3px;
-            vertical-align: middle;
-            display: inline-block;
-            line-height: 1.2;
-        }
-    </style>
+/* 桌面端隐藏移动菜单 */
+#mobile-nav-toggle { display: none; }
+#mobile-nav-panel { display: none; }
+</style>
 </head>
 <body>
-<div class="container">
-    <!-- 头部 hao114 极简但扎实 -->
-    <div class="header">
-        <div class="hao114">
-            hao114<span small>· 冲浪罗盘</span>
-        </div>
-        <div class="slogan">
-            ⚓ 114+ 青少年专属
-        </div>
-    </div>
 
-    <!-- 导航网格：共16个分类，每个分类内两列链接，总计超过114个网址 -->
-    <div class="nav-grid">
-        <!-- 1 视频星球 (9 links) -->
-        <div class="nav-card">
-            <div class="card-icon">📺</div>
-            <div class="card-title">视频·弹幕</div>
-            <div class="link-grid">
-                <a href="#">Bilibili</a>
-                <a href="#">抖音</a>
-                <a href="#">YouTube</a>
-                <a href="#">快手</a>
-                <a href="#">腾讯视频</a>
-                <a href="#">爱奇艺</a>
-                <a href="#">优酷</a>
-                <a href="#">西瓜视频</a>
-                <a href="#">AcFun</a>
-            </div>
-        </div>
-        <!-- 2 音乐空间 (9 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🎵</div>
-            <div class="card-title">音乐·播客</div>
-            <div class="link-grid">
-                <a href="#">网易云音乐</a>
-                <a href="#">QQ音乐</a>
-                <a href="#">Spotify</a>
-                <a href="#">酷狗音乐</a>
-                <a href="#">Apple Music</a>
-                <a href="#">咪咕音乐</a>
-                <a href="#">小宇宙</a>
-                <a href="#">荔枝FM</a>
-                <a href="#">汽水儿</a>
-            </div>
-        </div>
-        <!-- 3 游戏基地 (10 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🎮</div>
-            <div class="card-title">游戏·电竞</div>
-            <div class="link-grid">
-                <a href="#">Steam</a>
-                <a href="#">TapTap</a>
-                <a href="#">小黑盒</a>
-                <a href="#">Epic Games</a>
-                <a href="#">WeGame</a>
-                <a href="#">网易大神</a>
-                <a href="#">米游社</a>
-                <a href="#">OPPO游戏</a>
-                <a href="#">vivo游戏</a>
-                <a href="#">UU加速器</a>
-            </div>
-        </div>
-        <!-- 4 社交·同好 (9 links) -->
-        <div class="nav-card">
-            <div class="card-icon">💬</div>
-            <div class="card-title">社交·同好</div>
-            <div class="link-grid">
-                <a href="#">QQ空间</a>
-                <a href="#">微博</a>
-                <a href="#">贴吧</a>
-                <a href="#">Discord</a>
-                <a href="#">Telegram</a>
-                <a href="#">Soul</a>
-                <a href="#">Instagram</a>
-                <a href="#">小红书</a>
-                <a href="#">知乎</a>
-            </div>
-        </div>
-        <!-- 5 学习·自习 (9 links) -->
-        <div class="nav-card">
-            <div class="card-icon">📚</div>
-            <div class="card-title">学习·自习</div>
-            <div class="link-grid">
-                <a href="#">中国知网</a>
-                <a href="#">万方数据</a>
-                <a href="#">维普</a>
-                <a href="#">学堂在线</a>
-                <a href="#">中国大学MOOC</a>
-                <a href="#">网易公开课</a>
-                <a href="#">Coursera</a>
-                <a href="#">Khan Academy</a>
-                <a href="#">多邻国</a>
-            </div>
-        </div>
-        <!-- 6 二次元·漫画 (9 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🌸</div>
-            <div class="card-title">二次元·漫画</div>
-            <div class="link-grid">
-                <a href="#">哔哩哔哩漫画</a>
-                <a href="#">动漫之家</a>
-                <a href="#">动漫花园</a>
-                <a href="#">Pixiv</a>
-                <a href="#">腾讯动漫</a>
-                <a href="#">快看漫画</a>
-                <a href="#">有妖气</a>
-                <a href="#">动漫星空</a>
-                <a href="#">漫客栈</a>
-            </div>
-        </div>
-        <!-- 7 潮流·运动 (9 links) -->
-        <div class="nav-card">
-            <div class="card-icon">👟</div>
-            <div class="card-title">潮流·运动</div>
-            <div class="link-grid">
-                <a href="#">得物</a>
-                <a href="#">Nice</a>
-                <a href="#">虎扑</a>
-                <a href="#">识货</a>
-                <a href="#">Yoho!</a>
-                <a href="#">Vans</a>
-                <a href="#">Nike</a>
-                <a href="#">Adidas</a>
-                <a href="#">中国李宁</a>
-            </div>
-        </div>
-        <!-- 8 工具·实验室 (10 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🔧</div>
-            <div class="card-title">工具·实验室</div>
-            <div class="link-grid">
-                <a href="#">石墨文档</a>
-                <a href="#">ProcessOn</a>
-                <a href="#">草料二维码</a>
-                <a href="#">Canva</a>
-                <a href="#">Remove.bg</a>
-                <a href="#">WolframAlpha</a>
-                <a href="#">在线PS</a>
-                <a href="#">JSON.cn</a>
-                <a href="#">临时邮箱</a>
-                <a href="#">奶牛快传</a>
-            </div>
-        </div>
-        <!-- 9 购物·种草 (9 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🛍️</div>
-            <div class="card-title">购物·种草</div>
-            <div class="link-grid">
-                <a href="#">淘宝</a>
-                <a href="#">京东</a>
-                <a href="#">拼多多</a>
-                <a href="#">唯品会</a>
-                <a href="#">得物</a>
-                <a href="#">小红书</a>
-                <a href="#">美团</a>
-                <a href="#">饿了么</a>
-                <a href="#">什么值得买</a>
-            </div>
-        </div>
-        <!-- 10 图片·摄影 (8 links) -->
-        <div class="nav-card">
-            <div class="card-icon">📷</div>
-            <div class="card-title">图片·摄影</div>
-            <div class="link-grid">
-                <a href="#">Instagram</a>
-                <a href="#">图虫</a>
-                <a href="#">500px</a>
-                <a href="#">Pinterest</a>
-                <a href="#">Behance</a>
-                <a href="#">花瓣网</a>
-                <a href="#">站酷</a>
-                <a href="#">Unsplash</a>
-            </div>
-        </div>
-        <!-- 11 小说·阅读 (8 links) -->
-        <div class="nav-card">
-            <div class="card-icon">📖</div>
-            <div class="card-title">小说·阅读</div>
-            <div class="link-grid">
-                <a href="#">起点中文网</a>
-                <a href="#">番茄小说</a>
-                <a href="#">晋江文学城</a>
-                <a href="#">纵横中文网</a>
-                <a href="#">QQ阅读</a>
-                <a href="#">微信读书</a>
-                <a href="#">豆瓣阅读</a>
-                <a href="#">红袖添香</a>
-            </div>
-        </div>
-        <!-- 12 短视频·vlog (8 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🎥</div>
-            <div class="card-title">短视频·vlog</div>
-            <div class="link-grid">
-                <a href="#">抖音</a>
-                <a href="#">快手</a>
-                <a href="#">微信视频号</a>
-                <a href="#">小红书</a>
-                <a href="#">YouTube Shorts</a>
-                <a href="#">TikTok</a>
-                <a href="#">VUE</a>
-                <a href="#">开眼</a>
-            </div>
-        </div>
-        <!-- 13 动漫·资讯 (8 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🗯️</div>
-            <div class="card-title">动漫·资讯</div>
-            <div class="link-grid">
-                <a href="#">Anime News</a>
-                <a href="#">178动漫</a>
-                <a href="#">动漫星空</a>
-                <a href="#">AcFun</a>
-                <a href="#">MAL</a>
-                <a href="#">MyAnimeList</a>
-                <a href="#">羁绊网</a>
-                <a href="#">CP20</a>
-            </div>
-        </div>
-        <!-- 14 校园·青春 (8 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🏫</div>
-            <div class="card-title">校园·青春</div>
-            <div class="link-grid">
-                <a href="#">超级课程表</a>
-                <a href="#">学信网</a>
-                <a href="#">知到</a>
-                <a href="#">学习通</a>
-                <a href="#">智学网</a>
-                <a href="#">校园集市</a>
-                <a href="#">考研帮</a>
-                <a href="#">高考直通车</a>
-            </div>
-        </div>
-        <!-- 15 音乐·翻唱 (7 links) -->
-        <div class="nav-card">
-            <div class="card-icon">🎤</div>
-            <div class="card-title">音乐·翻唱</div>
-            <div class="link-grid">
-                <a href="#">5sing</a>
-                <a href="#">唱吧</a>
-                <a href="#">全民K歌</a>
-                <a href="#">网易云音乐</a>
-                <a href="#">echo回声</a>
-                <a href="#">喜马拉雅</a>
-                <a href="#">猫耳FM</a>
-            </div>
-        </div>
-        <!-- 16 小众·极客 (10 links) -->
-        <div class="nav-card">
-            <div class="card-icon">⚙️</div>
-            <div class="card-title">小众·极客</div>
-            <div class="link-grid">
-                <a href="#">GitHub</a>
-                <a href="#">Stack Overflow</a>
-                <a href="#">V2EX</a>
-                <a href="#">Product Hunt</a>
-                <a href="#">少数派</a>
-                <a href="#">异次元软件</a>
-                <a href="#">AppSo</a>
-                <a href="#">反斗限免</a>
-                <a href="#">吾爱破解</a>
-                <a href="#">52破解</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 快速搜索栏 + 访客计数 (怀旧风) -->
-    <div class="quick-tools">
-        <div class="search-engines">
-            <div class="search-item"><span>🔍</span> <a href="#">百度</a></div>
-            <div class="search-item"><span>🌐</span> <a href="#">Google</a></div>
-            <div class="search-item"><span>⚡</span> <a href="#">Bing</a></div>
-            <div class="search-item"><span>📖</span> <a href="#">维基百科</a></div>
-            <div class="search-item"><span>📱</span> <a href="#">抖音热榜</a></div>
-        </div>
-        <div class="zeitgeist">
-            <span>⚡114+</span> 收录 <span class="counter-strip">114</span> 个新新站点
-        </div>
-    </div>
-
-    <!-- 统计小行：确认总数超过114 (实际约145左右) -->
-    <div style="margin: 0.5rem 0 1rem; text-align: right; font-size:0.8rem; color:#3c6488;">
-        🌟 总收录 <strong>148+</strong> 个年轻最爱 · 持续增援
-    </div>
-
-    <!-- 页脚 -->
-    <div class="footer">
-        <div style="margin-bottom: 8px;">
-            <a href="#">📻 关于hao114</a> &nbsp;|&nbsp; 
-            <a href="#">📬 提交新站</a> &nbsp;|&nbsp; 
-            <a href="#">⭐ 设为首页</a> &nbsp;|&nbsp; 
-            <span class="counter-strip"> since 2001 ver 1.14</span>
-        </div>
-        <div style="opacity: 0.65;">
-            © hao114 · 极简永不落伍，为 Z 世代打造。 所有链接均采用 HTTP/1.1 友好设计。
-        </div>
-    </div>
+<div id="top">
+  <div class="logo">★ hao114.com ★</div>
+  <div class="slogan">好上网，从这里开始 | 中国年轻人最爱的网址导航</div>
 </div>
-<!-- 细微网格背景 -->
-<div style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; background-image:radial-gradient(#b8cbd8 1px, transparent 1px); background-size: 28px 28px; opacity:0.2; z-index:-1;"></div>
+
+<div id="search-bar">
+  <select id="engine-select">
+    <option value="https://www.baidu.com/s?wd=">百度</option>
+    <option value="https://www.bing.com/search?q=">必应</option>
+    <option value="https://www.bilibili.com/search?keyword=">B站</option>
+    <option value="https://search.jd.com/Search?keyword=">京东</option>
+    <option value="https://s.taobao.com/search?q=">淘宝</option>
+    <option value="https://www.zhihu.com/search?q=">知乎</option>
+  </select>
+  <input type="text" id="kw" placeholder="输入关键词..." size="35">
+  <input type="submit" value="搜　索" onclick="doSearch()">
+  &nbsp;
+  <span class="search-links">
+  <a href="https://www.baidu.com" target="_blank">百度</a> |
+  <a href="https://www.bing.com" target="_blank">必应</a> |
+  <a href="https://www.google.com" target="_blank">谷歌</a>
+  </span>
+</div>
+
+<div class="marquee-bar">
+  <marquee scrollamount="3">
+    🔥 热门：<a href="https://weibo.com/hot" target="_blank">微博热搜</a> &nbsp;|&nbsp;
+    <a href="https://www.zhihu.com/hot" target="_blank">知乎热榜</a> &nbsp;|&nbsp;
+    <a href="https://www.bilibili.com/v/popular/rank" target="_blank">B站排行榜</a> &nbsp;|&nbsp;
+    <a href="https://store.steampowered.com/specials" target="_blank">Steam特卖</a> &nbsp;|&nbsp;
+    <a href="https://music.163.com" target="_blank">网易云飙升榜</a> &nbsp;|&nbsp;
+    欢迎收藏本站 Ctrl+D
+  </marquee>
+</div>
+
+<!-- 移动端快捷导航折叠菜单 -->
+<button id="mobile-nav-toggle" onclick="toggleMobileNav()">☰ 快速导航 ▼</button>
+<div id="mobile-nav-panel">
+  <div class="cat-title">▶ 常用网站</div>
+  <a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a>
+  <a href="https://weibo.com" target="_blank">微　博</a>
+  <a href="https://www.zhihu.com" target="_blank">知　乎</a>
+  <a href="https://www.xiaohongshu.com" target="_blank">小红书</a>
+  <a href="https://tieba.baidu.com" target="_blank">百度贴吧</a>
+  <a href="https://www.jd.com" target="_blank">京　东</a>
+  <a href="https://www.taobao.com" target="_blank">淘　宝</a>
+  <a href="https://www.pinduoduo.com" target="_blank">拼多多</a>
+  <a href="https://mail.qq.com" target="_blank">QQ邮箱</a>
+  <a href="https://mail.163.com" target="_blank">163邮箱</a>
+  <a href="https://www.12306.cn" target="_blank">12306</a>
+  <a href="https://www.meituan.com" target="_blank">美　团</a>
+  <div class="cat-title">▶ 游戏 / AI</div>
+  <a href="https://store.steampowered.com" target="_blank">Steam</a>
+  <a href="https://www.taptap.cn" target="_blank">TapTap</a>
+  <a href="https://claude.ai" target="_blank">Claude</a>
+  <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+  <a href="https://www.doubao.com" target="_blank">豆包AI</a>
+  <a href="https://kimi.moonshot.cn" target="_blank">Kimi</a>
+</div>
+
+<div id="main">
+
+  <div id="left-nav">
+    <div class="cat-title">▶ 快速导航</div>
+    <a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a>
+    <a href="https://weibo.com" target="_blank">微　博</a>
+    <a href="https://www.zhihu.com" target="_blank">知　乎</a>
+    <a href="https://www.xiaohongshu.com" target="_blank">小红书</a>
+    <a href="https://tieba.baidu.com" target="_blank">百度贴吧</a>
+    <a href="https://www.jd.com" target="_blank">京　东</a>
+    <a href="https://www.taobao.com" target="_blank">淘　宝</a>
+    <a href="https://www.pinduoduo.com" target="_blank">拼多多</a>
+    <a href="https://mail.qq.com" target="_blank">QQ邮箱</a>
+    <a href="https://mail.163.com" target="_blank">163邮箱</a>
+    <a href="https://www.12306.cn" target="_blank">12306订票</a>
+    <a href="https://www.meituan.com" target="_blank">美　团</a>
+    <a href="https://map.baidu.com" target="_blank">百度地图</a>
+    <br>
+    <div class="cat-title">▶ 游戏</div>
+    <a href="https://store.steampowered.com" target="_blank">Steam</a>
+    <a href="https://www.taptap.cn" target="_blank">TapTap</a>
+    <a href="https://game.qq.com" target="_blank">腾讯游戏</a>
+    <a href="https://www.epicgames.com" target="_blank">Epic Games</a>
+    <a href="https://www.gamersky.com" target="_blank">游民星空</a>
+    <a href="https://nga.178.com" target="_blank">NGA论坛</a>
+    <a href="https://www.4399.com" target="_blank">4399小游戏</a>
+    <br>
+    <div class="cat-title">▶ AI工具</div>
+    <a href="https://claude.ai" target="_blank">Claude</a>
+    <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+    <a href="https://www.doubao.com" target="_blank">豆包AI</a>
+    <a href="https://kimi.moonshot.cn" target="_blank">Kimi</a>
+  </div>
+
+  <div id="content">
+
+    <div class="tool-row">
+      <a class="tool-btn" href="https://www.bilibili.com" target="_blank">📺 B站</a>
+      <a class="tool-btn" href="https://weibo.com" target="_blank">💬 微博</a>
+      <a class="tool-btn" href="https://www.zhihu.com" target="_blank">❓ 知乎</a>
+      <a class="tool-btn" href="https://www.xiaohongshu.com" target="_blank">📕 小红书</a>
+      <a class="tool-btn" href="https://music.163.com" target="_blank">🎵 音乐</a>
+      <a class="tool-btn" href="https://www.jd.com" target="_blank">🛒 京东</a>
+      <a class="tool-btn" href="https://www.12306.cn" target="_blank">🚄 12306</a>
+      <a class="tool-btn" href="https://github.com" target="_blank">💻 GitHub</a>
+    </div>
+
+    <div class="section">
+      <div class="section-head">📺 视频娱乐</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a><div class="desc">二次元/弹幕</div></div>
+        <div class="site-item"><a href="https://www.iqiyi.com" target="_blank">爱奇艺</a><div class="desc">剧集/综艺</div></div>
+        <div class="site-item"><a href="https://v.qq.com" target="_blank">腾讯视频</a><div class="desc">正版影视</div></div>
+        <div class="site-item"><a href="https://www.youku.com" target="_blank">优酷视频</a><div class="desc">影视综艺</div></div>
+        <div class="site-item"><a href="https://www.mgtv.com" target="_blank">芒果TV</a><div class="desc">湖南卫视</div></div>
+        <div class="site-item"><a href="https://www.youtube.com" target="_blank">YouTube</a><div class="desc">全球视频</div></div>
+        <div class="site-item"><a href="https://www.twitch.tv" target="_blank">Twitch</a><div class="desc">游戏直播</div></div>
+        <div class="site-item"><a href="https://www.douyu.com" target="_blank">斗鱼直播</a><div class="desc">游戏/娱乐</div></div>
+        <div class="site-item"><a href="https://www.huya.com" target="_blank">虎牙直播</a><div class="desc">游戏直播</div></div>
+        <div class="site-item"><a href="https://live.bilibili.com" target="_blank">B站直播</a><div class="desc">二次元直播</div></div>
+        <div class="site-item"><a href="https://www.netflix.com" target="_blank">Netflix</a><div class="desc">美剧/原创</div></div>
+        <div class="site-item"><a href="https://www.disneyplus.com" target="_blank">Disney+</a><div class="desc">漫威/迪士尼</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">💬 社交媒体</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://weibo.com" target="_blank">新浪微博</a><div class="desc">热搜/话题</div></div>
+        <div class="site-item"><a href="https://www.xiaohongshu.com" target="_blank">小红书</a><div class="desc">种草/生活</div></div>
+        <div class="site-item"><a href="https://tieba.baidu.com" target="_blank">百度贴吧</a><div class="desc">兴趣社区</div></div>
+        <div class="site-item"><a href="https://www.douyin.com" target="_blank">抖音网页版</a><div class="desc">短视频</div></div>
+        <div class="site-item"><a href="https://www.twitter.com" target="_blank">X (Twitter)</a><div class="desc">全球热点</div></div>
+        <div class="site-item"><a href="https://www.instagram.com" target="_blank">Instagram</a><div class="desc">图片/视频</div></div>
+        <div class="site-item"><a href="https://www.reddit.com" target="_blank">Reddit</a><div class="desc">英文社区</div></div>
+        <div class="site-item"><a href="https://discord.com" target="_blank">Discord</a><div class="desc">游戏/社群</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">📚 知识学习</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://www.zhihu.com" target="_blank">知　乎</a><div class="desc">问答/专栏</div></div>
+        <div class="site-item"><a href="https://github.com" target="_blank">GitHub</a><div class="desc">代码/开源</div></div>
+        <div class="site-item"><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a><div class="desc">编程问答</div></div>
+        <div class="site-item"><a href="https://zh.wikipedia.org" target="_blank">维基百科</a><div class="desc">百科全书</div></div>
+        <div class="site-item"><a href="https://juejin.cn" target="_blank">掘金技术</a><div class="desc">程序员社区</div></div>
+        <div class="site-item"><a href="https://www.v2ex.com" target="_blank">V2EX</a><div class="desc">开发者社区</div></div>
+        <div class="site-item"><a href="https://www.icourse163.org" target="_blank">中国大学MOOC</a><div class="desc">顶校课程</div></div>
+        <div class="site-item"><a href="https://www.coursera.org" target="_blank">Coursera</a><div class="desc">名校课程</div></div>
+        <div class="site-item"><a href="https://claude.ai" target="_blank">Claude AI</a><div class="desc">AI智能助手</div></div>
+        <div class="site-item"><a href="https://chat.openai.com" target="_blank">ChatGPT</a><div class="desc">AI对话</div></div>
+        <div class="site-item"><a href="https://www.doubao.com" target="_blank">豆包AI</a><div class="desc">字节AI</div></div>
+        <div class="site-item"><a href="https://kimi.moonshot.cn" target="_blank">Kimi</a><div class="desc">长文档AI</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">🎮 游戏中心</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://store.steampowered.com" target="_blank">Steam</a><div class="desc">PC游戏平台</div></div>
+        <div class="site-item"><a href="https://www.taptap.cn" target="_blank">TapTap</a><div class="desc">手游评测</div></div>
+        <div class="site-item"><a href="https://www.epicgames.com" target="_blank">Epic Games</a><div class="desc">免费游戏</div></div>
+        <div class="site-item"><a href="https://game.qq.com" target="_blank">腾讯游戏</a><div class="desc">LOL/王者</div></div>
+        <div class="site-item"><a href="https://www.gamersky.com" target="_blank">游民星空</a><div class="desc">游戏攻略</div></div>
+        <div class="site-item"><a href="https://www.3dmgame.com" target="_blank">3DM游戏</a><div class="desc">游戏资讯</div></div>
+        <div class="site-item"><a href="https://nga.178.com" target="_blank">NGA玩家社区</a><div class="desc">游戏论坛</div></div>
+        <div class="site-item"><a href="https://www.4399.com" target="_blank">4399小游戏</a><div class="desc">网页小游戏</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">✨ 二次元 / ACG</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://www.bilibili.com/anime" target="_blank">B站追番</a><div class="desc">新番/补番</div></div>
+        <div class="site-item"><a href="https://www.acfun.cn" target="_blank">AcFun</a><div class="desc">弹幕视频</div></div>
+        <div class="site-item"><a href="https://www.kuaikanmanhua.com" target="_blank">快看漫画</a><div class="desc">国漫/连载</div></div>
+        <div class="site-item"><a href="https://www.dmzj.com" target="_blank">动漫之家</a><div class="desc">漫画/资讯</div></div>
+        <div class="site-item"><a href="https://www.pixiv.net" target="_blank">Pixiv</a><div class="desc">日本插画</div></div>
+        <div class="site-item"><a href="https://bgm.tv" target="_blank">Bangumi</a><div class="desc">ACG评分</div></div>
+        <div class="site-item"><a href="https://myanimelist.net" target="_blank">MAL</a><div class="desc">动漫数据库</div></div>
+        <div class="site-item"><a href="https://www.nicovideo.jp" target="_blank">niconico</a><div class="desc">日本弹幕</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">🎵 音乐</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://music.163.com" target="_blank">网易云音乐</a><div class="desc">歌单/评论</div></div>
+        <div class="site-item"><a href="https://y.qq.com" target="_blank">QQ音乐</a><div class="desc">正版音乐</div></div>
+        <div class="site-item"><a href="https://www.kugou.com" target="_blank">酷狗音乐</a><div class="desc">海量曲库</div></div>
+        <div class="site-item"><a href="https://www.spotify.com" target="_blank">Spotify</a><div class="desc">全球音乐</div></div>
+        <div class="site-item"><a href="https://music.apple.com" target="_blank">Apple Music</a><div class="desc">无损音质</div></div>
+        <div class="site-item"><a href="https://www.bilibili.com/v/music" target="_blank">B站音乐区</a><div class="desc">翻唱/原创</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">🛒 购物消费</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://www.taobao.com" target="_blank">淘　宝</a><div class="desc">百货/服饰</div></div>
+        <div class="site-item"><a href="https://www.jd.com" target="_blank">京　东</a><div class="desc">数码/家电</div></div>
+        <div class="site-item"><a href="https://www.pinduoduo.com" target="_blank">拼多多</a><div class="desc">低价/补贴</div></div>
+        <div class="site-item"><a href="https://www.dewu.com" target="_blank">得　物</a><div class="desc">潮鞋/球鞋</div></div>
+        <div class="site-item"><a href="https://www.smzdm.com" target="_blank">什么值得买</a><div class="desc">好物推荐</div></div>
+        <div class="site-item"><a href="https://www.dangdang.com" target="_blank">当当网</a><div class="desc">图书/教材</div></div>
+        <div class="site-item"><a href="https://www.amazon.cn" target="_blank">亚马逊</a><div class="desc">进口商品</div></div>
+        <div class="site-item"><a href="https://www.vip.com" target="_blank">唯品会</a><div class="desc">品牌特卖</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">🏠 生活服务</div>
+      <div class="section-body">
+        <div class="site-item"><a href="https://www.meituan.com" target="_blank">美　团</a><div class="desc">外卖/团购</div></div>
+        <div class="site-item"><a href="https://www.ele.me" target="_blank">饿了么</a><div class="desc">外卖配送</div></div>
+        <div class="site-item"><a href="https://www.dianping.com" target="_blank">大众点评</a><div class="desc">美食探店</div></div>
+        <div class="site-item"><a href="https://www.12306.cn" target="_blank">12306</a><div class="desc">火车/高铁</div></div>
+        <div class="site-item"><a href="https://www.ctrip.com" target="_blank">携　程</a><div class="desc">机票/酒店</div></div>
+        <div class="site-item"><a href="https://www.mafengwo.cn" target="_blank">马蜂窝</a><div class="desc">旅游攻略</div></div>
+        <div class="site-item"><a href="https://map.baidu.com" target="_blank">百度地图</a><div class="desc">导航/公交</div></div>
+        <div class="site-item"><a href="https://amap.com" target="_blank">高德地图</a><div class="desc">实时路况</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="right">
+    <div id="clock">--:--:--</div>
+    <br>
+
+    <div class="right-box">
+      <div class="right-box-head">🔥 今日热榜</div>
+      <div class="right-box-body">
+        <a href="https://weibo.com/hot" target="_blank">微博实时热搜</a>
+        <a href="https://www.zhihu.com/hot" target="_blank">知乎热榜</a>
+        <a href="https://www.bilibili.com/v/popular/rank" target="_blank">B站全站排行</a>
+        <a href="https://tophub.today" target="_blank">今日热榜汇总</a>
+        <a href="https://tieba.baidu.com" target="_blank">贴吧热门话题</a>
+      </div>
+    </div>
+
+    <div class="right-box">
+      <div class="right-box-head">📰 新闻资讯</div>
+      <div class="right-box-body">
+        <a href="https://news.qq.com" target="_blank">腾讯新闻</a>
+        <a href="https://www.toutiao.com" target="_blank">今日头条</a>
+        <a href="https://www.36kr.com" target="_blank">36氪科技</a>
+        <a href="https://sspai.com" target="_blank">少数派</a>
+        <a href="https://www.ifanr.com" target="_blank">爱范儿</a>
+        <a href="https://www.huxiu.com" target="_blank">虎嗅网</a>
+      </div>
+    </div>
+
+    <div class="right-box">
+      <div class="right-box-head">🛠️ 在线工具</div>
+      <div class="right-box-body">
+        <a href="https://fanyi.baidu.com" target="_blank">百度翻译</a>
+        <a href="https://www.deepl.com" target="_blank">DeepL翻译</a>
+        <a href="https://www.ilovepdf.com/zh-cn" target="_blank">PDF工具</a>
+        <a href="https://tinypng.com" target="_blank">图片压缩</a>
+        <a href="https://carbon.now.sh" target="_blank">代码截图</a>
+        <a href="https://regex101.com" target="_blank">正则测试</a>
+        <a href="https://www.processon.com" target="_blank">流程图</a>
+        <a href="https://www.photopea.com" target="_blank">在线PS</a>
+      </div>
+    </div>
+
+    <div class="right-box">
+      <div class="right-box-head">🎨 创作设计</div>
+      <div class="right-box-body">
+        <a href="https://www.canva.com" target="_blank">Canva</a>
+        <a href="https://www.figma.com" target="_blank">Figma</a>
+        <a href="https://www.midjourney.com" target="_blank">Midjourney</a>
+        <a href="https://www.pixiv.net" target="_blank">Pixiv</a>
+        <a href="https://www.behance.net" target="_blank">Behance</a>
+      </div>
+    </div>
+
+    <div class="right-box">
+      <div class="right-box-head">📱 应用下载</div>
+      <div class="right-box-body">
+        <a href="https://apps.apple.com" target="_blank">App Store</a>
+        <a href="https://play.google.com" target="_blank">Google Play</a>
+        <a href="https://www.taptap.cn" target="_blank">TapTap</a>
+        <a href="https://www.coolapk.com" target="_blank">酷安</a>
+      </div>
+    </div>
+
+    <div style="text-align:center; font-size:11px; color:#666; padding:4px; border-top:1px dotted #ccc;">
+      <span id="visit-count">今日访问：加载中</span><br>
+      <span style="color:#999;">建议1280以上分辨率</span>
+    </div>
+  </div>
+
+</div>
+
+<div id="footer">
+  <a href="#">关于我们</a> |
+  <a href="#">联系我们</a> |
+  <a href="#">意见反馈</a> |
+  <a href="javascript:window.external.addFavorite('https://hao114.com','hao114导航')" onclick="try{window.external.addFavorite(location.href,document.title)}catch(e){alert('请按 Ctrl+D 收藏本页')}">加入收藏</a> |
+  <a href="javascript:this.style.behavior='url(#default#homepage)';this.setHomePage('https://hao114.com')" onclick="try{window.external.addSearchProvider()}catch(e){}">设为首页</a>
+  <br>
+  Copyright &copy; 2024 hao114.com &nbsp;好一一四导航 &nbsp;|&nbsp; 本站所有链接为外部网站，内容与本站无关
+  <br>
+  <span style="color:#888;">建议使用 Chrome / Edge / Firefox 浏览器</span>
+</div>
+
+<script>
+function toggleMobileNav() {
+  var panel = document.getElementById('mobile-nav-panel');
+  var btn = document.getElementById('mobile-nav-toggle');
+  panel.classList.toggle('open');
+  btn.textContent = panel.classList.contains('open') ? '☰ 快速导航 ▲' : '☰ 快速导航 ▼';
+}
+
+function updateClock() {
+  var now = new Date();
+  var h = String(now.getHours()).padStart(2,'0');
+  var m = String(now.getMinutes()).padStart(2,'0');
+  var s = String(now.getSeconds()).padStart(2,'0');
+  var days = ['日','一','二','三','四','五','六'];
+  var d = now.getFullYear()+'年'+(now.getMonth()+1)+'月'+now.getDate()+'日 星期'+days[now.getDay()];
+  document.getElementById('clock').innerHTML = d+'<br>'+h+':'+m+':'+s;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+function doSearch() {
+  var kw = document.getElementById('kw').value.trim();
+  if (!kw) { alert('请输入搜索关键词！'); return; }
+  var base = document.getElementById('engine-select').value;
+  window.open(base + encodeURIComponent(kw), '_blank');
+}
+document.getElementById('kw').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') doSearch();
+});
+
+document.getElementById('visit-count').innerText = '今日访问：'+(1234567+Math.floor(Math.random()*9999)).toLocaleString();
+</script>
 </body>
 </html>
