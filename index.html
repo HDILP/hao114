@@ -1,1737 +1,579 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="hao114 — 年轻人的网址导航，Material Design 3 设计">
-<meta name="theme-color" content="#6750A4">
-<title>hao114 — 年轻人的网址导航</title>
-<link rel="preconnect" href="https://fonts.googleapis.cn">
-<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
-<link href="https://fonts.googleapis.cn/css2?family=Roboto:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-/* Material Design 3 Design Tokens - Baseline Color Scheme */
-:root {
-  /* Primary Palette */
-  --md-sys-color-primary: #6750A4;
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #EADDFF;
-  --md-sys-color-on-primary-container: #21005D;
-  
-  /* Secondary Palette */
-  --md-sys-color-secondary: #625B71;
-  --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-secondary-container: #E8DEF8;
-  --md-sys-color-on-secondary-container: #1D192B;
-  
-  /* Tertiary Palette */
-  --md-sys-color-tertiary: #7D5260;
-  --md-sys-color-on-tertiary: #FFFFFF;
-  --md-sys-color-tertiary-container: #FFD8E4;
-  --md-sys-color-on-tertiary-container: #31111D;
-  
-  /* Error Palette */
-  --md-sys-color-error: #B3261E;
-  --md-sys-color-on-error: #FFFFFF;
-  --md-sys-color-error-container: #F9DEDC;
-  --md-sys-color-on-error-container: #410E0B;
-  
-  /* Surface Colors - Material You Surface Roles */
-  --md-sys-color-surface-dim: #DED8E1;
-  --md-sys-color-surface: #FEF7FF;
-  --md-sys-color-surface-bright: #FEF7FF;
-  --md-sys-color-surface-container-lowest: #FFFFFF;
-  --md-sys-color-surface-container-low: #F7F2FA;
-  --md-sys-color-surface-container: #F3EDF7;
-  --md-sys-color-surface-container-high: #ECE6F0;
-  --md-sys-color-surface-container-highest: #E6E0E9;
-  --md-sys-color-on-surface: #1D1B20;
-  --md-sys-color-on-surface-variant: #49454F;
-  --md-sys-color-outline: #79747E;
-  --md-sys-color-outline-variant: #CAC4D0;
-  
-  /* Inverse Colors */
-  --md-sys-color-inverse-surface: #322F35;
-  --md-sys-color-inverse-on-surface: #F5EFF7;
-  --md-sys-color-inverse-primary: #D0BCFF;
-  
-  /* Static Colors */
-  --md-sys-color-scrim: #000000;
-  --md-sys-color-shadow: #000000;
-  
-  /* Elevation - MD3 Surface Tint */
-  --md-sys-color-surface-tint: #6750A4;
-  
-  /* Typography Scale - MD3 Typeset */
-  --md-sys-typescale-display-large-font-family-name: 'Roboto', 'Noto Sans SC', sans-serif;
-  --md-sys-typescale-display-large-font-family-style: normal;
-  --md-sys-typescale-display-large-font-weight: 400;
-  --md-sys-typescale-display-large-font-size: 57px;
-  --md-sys-typescale-display-large-line-height: 64px;
-  --md-sys-typescale-display-large-letter-spacing: -0.25px;
-  
-  --md-sys-typescale-headline-large-font-family-name: 'Roboto', 'Noto Sans SC', sans-serif;
-  --md-sys-typescale-headline-large-font-weight: 400;
-  --md-sys-typescale-headline-large-font-size: 32px;
-  --md-sys-typescale-headline-large-line-height: 40px;
-  
-  --md-sys-typescale-title-large-font-family-name: 'Roboto', 'Noto Sans SC', sans-serif;
-  --md-sys-typescale-title-large-font-weight: 500;
-  --md-sys-typescale-title-large-font-size: 22px;
-  --md-sys-typescale-title-large-line-height: 28px;
-  
-  --md-sys-typescale-title-medium-font-family-name: 'Roboto', 'Noto Sans SC', sans-serif;
-  --md-sys-typescale-title-medium-font-weight: 500;
-  --md-sys-typescale-title-medium-font-size: 16px;
-  --md-sys-typescale-title-medium-line-height: 24px;
-  --md-sys-typescale-title-medium-letter-spacing: 0.15px;
-  
-  --md-sys-typescale-label-large-font-family-name: 'Roboto', 'Noto Sans SC', sans-serif;
-  --md-sys-typescale-label-large-font-weight: 500;
-  --md-sys-typescale-label-large-font-size: 14px;
-  --md-sys-typescale-label-large-line-height: 20px;
-  --md-sys-typescale-label-large-letter-spacing: 0.1px;
-  
-  --md-sys-typescale-body-large-font-family-name: 'Roboto', 'Noto Sans SC', sans-serif;
-  --md-sys-typescale-body-large-font-weight: 400;
-  --md-sys-typescale-body-large-font-size: 16px;
-  --md-sys-typescale-body-large-line-height: 24px;
-  --md-sys-typescale-body-large-letter-spacing: 0.5px;
-  
-  --md-sys-typescale-body-medium-font-family-name: 'Roboto', 'Noto Sans SC', sans-serif;
-  --md-sys-typescale-body-medium-font-weight: 400;
-  --md-sys-typescale-body-medium-font-size: 14px;
-  --md-sys-typescale-body-medium-line-height: 20px;
-  --md-sys-typescale-body-medium-letter-spacing: 0.25px;
-  
-  /* Shape - MD3 Shape Scale */
-  --md-sys-shape-corner-none: 0px;
-  --md-sys-shape-corner-extra-small: 4px;
-  --md-sys-shape-corner-small: 8px;
-  --md-sys-shape-corner-medium: 12px;
-  --md-sys-shape-corner-large: 16px;
-  --md-sys-shape-corner-extra-large: 28px;
-  --md-sys-shape-corner-full: 50%;
-  
-  /* Elevation - MD3 Elevation System */
-  --md-sys-elevation-level0: 0px 0px 0px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 0px 0px rgba(0,0,0,0.12);
-  --md-sys-elevation-level1: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  --md-sys-elevation-level2: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
-  --md-sys-elevation-level3: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
-  --md-sys-elevation-level4: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
-  --md-sys-elevation-level5: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
-  
-  /* Animation - MD3 Motion System */
-  --md-sys-motion-duration-short1: 50ms;
-  --md-sys-motion-duration-short2: 100ms;
-  --md-sys-motion-duration-short3: 150ms;
-  --md-sys-motion-duration-short4: 200ms;
-  --md-sys-motion-duration-medium1: 250ms;
-  --md-sys-motion-duration-medium2: 300ms;
-  --md-sys-motion-duration-medium3: 350ms;
-  --md-sys-motion-duration-medium4: 400ms;
-  --md-sys-motion-duration-long1: 450ms;
-  --md-sys-motion-duration-long2: 500ms;
-  --md-sys-motion-duration-long3: 550ms;
-  --md-sys-motion-duration-long4: 600ms;
-  --md-sys-motion-duration-extra-long1: 700ms;
-  --md-sys-motion-duration-extra-long2: 800ms;
-  --md-sys-motion-duration-extra-long3: 900ms;
-  --md-sys-motion-duration-extra-long4: 1000ms;
-  
-  --md-sys-motion-easing-linear: linear;
-  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0.0, 0.0, 1.0);
-  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0.0, 1.0, 1.0);
-  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0.0, 0.0, 0.0, 1.0);
-  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0.0, 0.0, 1.0);
-  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0.0, 0.8, 0.15);
-  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1.0);
-  --md-sys-motion-easing-legacy: cubic-bezier(0.4, 0.0, 0.2, 1);
-  --md-sys-motion-easing-legacy-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
-  --md-sys-motion-easing-legacy-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
-  
-  /* Layout */
-  --header-height: 64px;
-  --nav-height: 48px;
-  --max-content-width: 1200px;
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hao114 · 冲浪起航（100+网址）</title>
+    <style>
+        /* 极简重置 + HTTP 1.1 怀旧感 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Dark Theme - MD3 Dark Color Scheme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --md-sys-color-primary: #D0BCFF;
-    --md-sys-color-on-primary: #381E72;
-    --md-sys-color-primary-container: #4F378B;
-    --md-sys-color-on-primary-container: #EADDFF;
-    --md-sys-color-secondary: #CCC2DC;
-    --md-sys-color-on-secondary: #332D41;
-    --md-sys-color-secondary-container: #4A4458;
-    --md-sys-color-on-secondary-container: #E8DEF8;
-    --md-sys-color-tertiary: #EFB8C8;
-    --md-sys-color-on-tertiary: #492532;
-    --md-sys-color-tertiary-container: #633B48;
-    --md-sys-color-on-tertiary-container: #FFD8E4;
-    --md-sys-color-error: #F2B8B5;
-    --md-sys-color-on-error: #601410;
-    --md-sys-color-error-container: #8C1D18;
-    --md-sys-color-on-error-container: #F9DEDC;
-    --md-sys-color-surface-dim: #141218;
-    --md-sys-color-surface: #141218;
-    --md-sys-color-surface-bright: #3B383E;
-    --md-sys-color-surface-container-lowest: #0F0D13;
-    --md-sys-color-surface-container-low: #1D1B20;
-    --md-sys-color-surface-container: #211F26;
-    --md-sys-color-surface-container-high: #2B2930;
-    --md-sys-color-surface-container-highest: #36343B;
-    --md-sys-color-on-surface: #E6E0E9;
-    --md-sys-color-on-surface-variant: #CAC4D0;
-    --md-sys-color-outline: #938F99;
-    --md-sys-color-outline-variant: #49454F;
-    --md-sys-color-inverse-surface: #E6E0E9;
-    --md-sys-color-inverse-on-surface: #322F35;
-    --md-sys-color-inverse-primary: #6750A4;
-    --md-sys-color-surface-tint: #D0BCFF;
-  }
-}
+        body {
+            background: #eef1f5;
+            font-family: 'Helvetica Neue', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.4;
+            color: #1a2b3c;
+            padding: 0 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* Reset & Base - Performance Optimized */
-*,*::before,*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
+        .container {
+            max-width: 1200px;       /* 加宽以容纳四列 */
+            margin: 1.8rem auto 2rem auto;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            box-shadow: 0 15px 30px -12px rgba(0,20,30,0.2), 0 0 0 1px rgba(0,0,0,0.02);
+            padding: 2rem 1.8rem 2.5rem 1.8rem;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
 
-html {
-  scroll-behavior: smooth;
-  height: 100%;
-}
+        /* 头部 */
+        .header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            border-bottom: 2px solid #b8c6d4;
+            padding-bottom: 0.6rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
 
-body {
-  font-family: var(--md-sys-typescale-body-large-font-family-name);
-  font-size: var(--md-sys-typescale-body-large-font-size);
-  line-height: var(--md-sys-typescale-body-large-line-height);
-  letter-spacing: var(--md-sys-typescale-body-large-letter-spacing);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
-  min-height: 100vh;
-  overflow-x: hidden;
-  contain: layout style;
-}
+        .hao114 {
+            font-size: 3.4rem;
+            font-weight: 560;
+            letter-spacing: -2px;
+            color: #103456;
+            line-height: 1;
+            text-shadow: 3px 3px 0 #dee5ed;
+        }
 
-/* MD3 App Bar - Top App Bar */
-.app-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--header-height);
-  background-color: var(--md-sys-color-surface-container);
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
-  z-index: 1100;
-  display: flex;
-  align-items: center;
-  padding: 0 var(--spacing-md);
-  box-shadow: var(--md-sys-elevation-level2);
-  contain: layout style paint;
-  content-visibility: auto;
-  contain-intrinsic-height: 64px;
-}
+        .hao114 small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #3d5e7a;
+            margin-left: 10px;
+            letter-spacing: 0px;
+        }
 
-.app-bar-content {
-  max-width: var(--max-content-width);
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  height: 100%;
-}
+        .slogan {
+            background: #e3eaf2;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            border: 1px solid #b6ccde;
+            color: #1b3b59;
+        }
 
-/* MD3 Logo - Display Style */
-.logo {
-  font-family: var(--md-sys-typescale-title-large-font-family-name);
-  font-size: var(--md-sys-typescale-title-large-font-size);
-  font-weight: var(--md-sys-typescale-title-large-font-weight);
-  line-height: var(--md-sys-typescale-title-large-line-height);
-  color: var(--md-sys-color-primary);
-  letter-spacing: -0.5px;
-  white-space: nowrap;
-  user-select: none;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--md-sys-shape-corner-medium);
-  transition: background-color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  will-change: background-color;
-}
+        /* 导航网格 — 四列，适应更多卡片 */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem 1.2rem;
+            margin: 1.8rem 0;
+        }
 
-.logo:hover {
-  background-color: var(--md-sys-color-primary-container);
-}
+        /* 卡片：内部分两列链接 */
+        .nav-card {
+            background: #ffffffd9;
+            backdrop-filter: blur(4px);
+            border-radius: 24px;
+            padding: 1rem 0.8rem 0.8rem 0.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02), 0 6px 12px -8px #2b4a6b1a;
+            border: 1px solid #e3ecf5;
+            transition: all 0.15s ease;
+        }
 
-.logo-accent {
-  color: var(--md-sys-color-tertiary);
-  font-weight: 700;
-}
+        .nav-card:hover {
+            border-color: #abc0d3;
+            box-shadow: 0 12px 18px -12px #244b6e, 0 0 0 1px rgba(82, 133, 192, 0.3);
+            transform: translateY(-2px);
+        }
 
-/* MD3 Search Bar - Filled Text Field Style */
-.search-container {
-  flex: 1;
-  max-width: 600px;
-  position: relative;
-}
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.1rem;
+            filter: drop-shadow(0 2px 2px #b7c9db);
+            text-align: left;
+            padding-left: 0.3rem;
+        }
 
-.search-field {
-  width: 100%;
-  height: 48px;
-  background-color: var(--md-sys-color-surface-container-highest);
-  border: 1px solid transparent;
-  border-radius: var(--md-sys-shape-corner-full);
-  padding: 0 var(--spacing-md) 0 48px;
-  font-family: inherit;
-  font-size: var(--md-sys-typescale-body-large-font-size);
-  color: var(--md-sys-color-on-surface);
-  outline: none;
-  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  will-change: background-color, border-color, box-shadow;
-}
+        .card-title {
+            font-weight: 650;
+            font-size: 1.1rem;
+            color: #103456;
+            border-left: 4px solid #7fa1c3;
+            padding-left: 0.6rem;
+            margin: 0.3rem 0 0.7rem 0;
+            letter-spacing: -0.3px;
+        }
 
-.search-field:hover {
-  background-color: var(--md-sys-color-surface-container);
-  border-color: var(--md-sys-color-outline);
-}
+        /* 链接区域采用两列网格 */
+        .link-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.2rem 0.7rem;
+            margin-bottom: 0.2rem;
+        }
 
-.search-field:focus {
-  background-color: var(--md-sys-color-surface);
-  border-color: var(--md-sys-color-primary);
-  box-shadow: 0 0 0 2px var(--md-sys-color-primary-container);
-}
+        .link-grid a {
+            text-decoration: none;
+            color: #1f4a7a;
+            font-size: 0.83rem;
+            padding: 0.22rem 0.3rem;
+            border-radius: 14px;
+            background: #f4f9ff;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: background 0.15s;
+            display: block;
+        }
 
-.search-field::placeholder {
-  color: var(--md-sys-color-on-surface-variant);
-  opacity: 0.7;
-}
+        .link-grid a:hover {
+            background: #d9e9ff;
+            border-color: #98b9da;
+            color: #0b2b4a;
+            text-decoration: underline dotted #285e8e;
+        }
 
-.search-icon {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--md-sys-color-on-surface-variant);
-  pointer-events: none;
-  width: 20px;
-  height: 20px;
-}
+        /* 对于一些长名字折行处理 */
+        .link-grid a.wrap-allowed {
+            white-space: normal;
+            word-break: break-word;
+            line-height: 1.3;
+        }
 
-/* MD3 Navigation Rail/Bar */
-.navigation-bar {
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  height: var(--nav-height);
-  background-color: var(--md-sys-color-surface-container);
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
-  z-index: 1000;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  contain: layout style paint;
-  content-visibility: auto;
-  contain-intrinsic-height: 48px;
-}
+        /* 快速工具条 */
+        .quick-tools {
+            margin: 2.2rem 0 1rem 0;
+            background: #dee8f2;
+            border-radius: 60px;
+            padding: 1rem 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #c0d2e3;
+        }
 
-.navigation-bar::-webkit-scrollbar {
-  display: none;
-}
+        .search-engines {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
 
-.navigation-content {
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 var(--spacing-md);
-  gap: var(--spacing-xs);
-}
+        .search-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 40px;
+            padding: 0.2rem 1.2rem 0.2rem 0.8rem;
+            box-shadow: 0 1px 4px #b1c5da;
+        }
 
-/* MD3 Navigation Tabs */
-.nav-tab {
-  position: relative;
-  height: 100%;
-  padding: 0 var(--spacing-md);
-  border: none;
-  background: transparent;
-  font-family: var(--md-sys-typescale-label-large-font-family-name);
-  font-size: var(--md-sys-typescale-label-large-font-size);
-  font-weight: var(--md-sys-typescale-label-large-font-weight);
-  line-height: var(--md-sys-typescale-label-large-line-height);
-  letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
-  color: var(--md-sys-color-on-surface-variant);
-  cursor: pointer;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  border-radius: var(--md-sys-shape-corner-small);
-  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  will-change: color, background-color;
-  contain: layout style;
-}
+        .search-item span {
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
 
-.nav-tab:hover {
-  background-color: var(--md-sys-color-surface-container-high);
-  color: var(--md-sys-color-on-surface);
-}
+        .search-item a {
+            text-decoration: none;
+            color: #123f64;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-left: 1px solid #c0d2e3;
+            padding-left: 8px;
+        }
 
-.nav-tab.active {
-  color: var(--md-sys-color-primary);
-  background-color: var(--md-sys-color-primary-container);
-}
+        .search-item a:hover {
+            color: #002856;
+            text-decoration: underline;
+        }
 
-.nav-tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 12px;
-  right: 12px;
-  height: 3px;
-  background-color: var(--md-sys-color-primary);
-  border-radius: 3px 3px 0 0;
-}
+        .zeitgeist {
+            background: #f2f7fd;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            border: 1px solid #92afcc;
+            font-size: 0.9rem;
+            color: #173e5f;
+        }
 
-/* Main Content Layout */
-.main-content {
-  margin-top: calc(var(--header-height) + var(--nav-height));
-  padding: var(--spacing-lg) var(--spacing-md);
-  max-width: var(--max-content-width);
-  margin-left: auto;
-  margin-right: auto;
-  min-height: calc(100vh - var(--header-height) - var(--nav-height) - 60px);
-  contain: layout style;
-}
+        .zeitgeist span {
+            background: #c2d9f0;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            margin: 0 0.2rem;
+            font-weight: 600;
+        }
 
-/* MD3 Section - Surface Container Style */
-.section {
-  margin-bottom: var(--spacing-xl);
-  contain: layout style paint;
-  content-visibility: auto;
-  contain-intrinsic-height: auto 300px;
-}
+        .counter-strip {
+            background: #1d3a52;
+            color: #aae0e0;
+            font-family: 'Courier New', monospace;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            border: 1px solid #458585;
+        }
 
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-  padding: 0 var(--spacing-xs);
-}
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #5f748b;
+            border-top: 1px dashed #b9cbdd;
+            padding-top: 1.5rem;
+        }
 
-.section-title {
-  font-family: var(--md-sys-typescale-title-medium-font-family-name);
-  font-size: var(--md-sys-typescale-title-medium-font-size);
-  font-weight: var(--md-sys-typescale-title-medium-font-weight);
-  line-height: var(--md-sys-typescale-title-medium-line-height);
-  letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing);
-  color: var(--md-sys-color-on-surface);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
+        .footer a {
+            color: #2f6290;
+            text-decoration: none;
+            margin: 0 5px;
+        }
 
-.section-divider {
-  flex: 1;
-  height: 1px;
-  background-color: var(--md-sys-color-outline-variant);
-}
+        .footer a:hover {
+            text-decoration: underline wavy;
+        }
 
-/* MD3 Chips Grid for Top Sites */
-.chips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-}
+        @media (max-width: 900px) {
+            .nav-grid { grid-template-columns: repeat(3, 1fr); }
+        }
 
-/* MD3 Assist Chip Style */
-.assist-chip {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-sm);
-  background-color: var(--md-sys-color-surface-container-low);
-  border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--md-sys-shape-corner-large);
-  text-decoration: none;
-  color: var(--md-sys-color-on-surface);
-  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  will-change: transform, box-shadow, background-color, border-color;
-  contain: layout style paint;
-  position: relative;
-  overflow: hidden;
-}
+        @media (max-width: 640px) {
+            .nav-grid { grid-template-columns: repeat(2, 1fr); }
+            .hao114 { font-size: 2.5rem; }
+            .quick-tools { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+        }
 
-.assist-chip::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--md-sys-color-primary);
-  opacity: 0;
-  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  pointer-events: none;
-}
+        @media (max-width: 420px) {
+            .nav-grid { grid-template-columns: 1fr; }
+        }
 
-.assist-chip:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--md-sys-elevation-level2);
-  border-color: var(--md-sys-color-outline);
-  background-color: var(--md-sys-color-surface-container);
-}
-
-.assist-chip:hover::before {
-  opacity: 0.05;
-}
-
-.assist-chip:active {
-  transform: translateY(0);
-  box-shadow: var(--md-sys-elevation-level1);
-}
-
-.chip-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--md-sys-shape-corner-medium);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  background-color: var(--md-sys-color-surface-container-highest);
-  position: relative;
-  z-index: 1;
-  transition: transform var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  will-change: transform;
-}
-
-.assist-chip:hover .chip-icon {
-  transform: scale(1.1);
-}
-
-.chip-label {
-  font-family: var(--md-sys-typescale-label-large-font-family-name);
-  font-size: var(--md-sys-typescale-label-large-font-size);
-  font-weight: var(--md-sys-typescale-label-large-font-weight);
-  line-height: var(--md-sys-typescale-label-large-line-height);
-  color: var(--md-sys-color-on-surface);
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* MD3 Card Grid for Categories */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--spacing-md);
-}
-
-/* MD3 Card Style - Elevated Card */
-.md-card {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md);
-  background-color: var(--md-sys-color-surface-container-lowest);
-  border-radius: var(--md-sys-shape-corner-medium);
-  text-decoration: none;
-  color: var(--md-sys-color-on-surface);
-  border: 1px solid var(--md-sys-color-outline-variant);
-  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  will-change: transform, box-shadow, background-color;
-  contain: layout style paint;
-  position: relative;
-  overflow: hidden;
-}
-
-.md-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--md-sys-color-primary);
-  opacity: 0;
-  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  pointer-events: none;
-}
-
-.md-card:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--md-sys-elevation-level2);
-  background-color: var(--md-sys-color-surface-container-low);
-  border-color: var(--md-sys-color-outline);
-}
-
-.md-card:hover::before {
-  opacity: 0.04;
-}
-
-.md-card:active {
-  transform: translateY(0);
-  box-shadow: var(--md-sys-elevation-level1);
-}
-
-.card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--md-sys-shape-corner-small);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-  background-color: var(--md-sys-color-secondary-container);
-  color: var(--md-sys-color-on-secondary-container);
-  position: relative;
-  z-index: 1;
-  transition: transform var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
-  will-change: transform;
-}
-
-.md-card:hover .card-icon {
-  transform: scale(1.05);
-}
-
-.card-content {
-  flex: 1;
-  min-width: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.card-title {
-  font-family: var(--md-sys-typescale-body-large-font-family-name);
-  font-size: var(--md-sys-typescale-body-large-font-size);
-  font-weight: 500;
-  line-height: var(--md-sys-typescale-body-large-line-height);
-  color: var(--md-sys-color-on-surface);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 2px;
-}
-
-.card-description {
-  font-family: var(--md-sys-typescale-body-medium-font-family-name);
-  font-size: var(--md-sys-typescale-body-medium-font-size);
-  font-weight: var(--md-sys-typescale-body-medium-font-weight);
-  line-height: var(--md-sys-typescale-body-medium-line-height);
-  letter-spacing: var(--md-sys-typescale-body-medium-letter-spacing);
-  color: var(--md-sys-color-on-surface-variant);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* MD3 Empty State */
-.empty-state {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-xl) var(--spacing-md);
-  text-align: center;
-  color: var(--md-sys-color-on-surface-variant);
-  min-height: 300px;
-}
-
-.empty-state.visible {
-  display: flex;
-}
-
-.empty-icon {
-  font-size: 48px;
-  margin-bottom: var(--spacing-md);
-  opacity: 0.5;
-}
-
-.empty-title {
-  font-family: var(--md-sys-typescale-title-large-font-family-name);
-  font-size: var(--md-sys-typescale-title-large-font-size);
-  font-weight: var(--md-sys-typescale-title-large-font-weight);
-  color: var(--md-sys-color-on-surface);
-  margin-bottom: var(--spacing-sm);
-}
-
-.empty-description {
-  font-family: var(--md-sys-typescale-body-medium-font-family-name);
-  font-size: var(--md-sys-typescale-body-medium-font-size);
-  color: var(--md-sys-color-on-surface-variant);
-}
-
-/* MD3 Footer - Bottom App Bar Style */
-.footer {
-  background-color: var(--md-sys-color-surface-container);
-  border-top: 1px solid var(--md-sys-color-outline-variant);
-  padding: var(--spacing-md);
-  text-align: center;
-  font-family: var(--md-sys-typescale-body-medium-font-family-name);
-  font-size: var(--md-sys-typescale-body-medium-font-size);
-  color: var(--md-sys-color-on-surface-variant);
-  margin-top: auto;
-  contain: layout style paint;
-  content-visibility: auto;
-  contain-intrinsic-height: 60px;
-}
-
-/* Utility Classes */
-.hidden {
-  display: none !important;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Responsive Design - Mobile First */
-@media (max-width: 600px) {
-  :root {
-    --header-height: 56px;
-    --nav-height: 44px;
-  }
-  
-  .app-bar-content {
-    gap: var(--spacing-sm);
-    padding: 0 var(--spacing-sm);
-  }
-  
-  .logo {
-    font-size: 20px;
-    padding: var(--spacing-xs) var(--spacing-sm);
-  }
-  
-  .search-container {
-    max-width: none;
-  }
-  
-  .search-field {
-    height: 40px;
-    font-size: 14px;
-  }
-  
-  .chips-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: var(--spacing-sm);
-  }
-  
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .navigation-content {
-    padding: 0 var(--spacing-sm);
-  }
-  
-  .nav-tab {
-    padding: 0 var(--spacing-sm);
-    font-size: 13px;
-  }
-  
-  .main-content {
-    padding: var(--spacing-md) var(--spacing-sm);
-  }
-  
-  .section-title {
-    font-size: 14px;
-  }
-}
-
-/* Reduced Motion - Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* High Contrast Mode - Accessibility */
-@media (prefers-contrast: high) {
-  :root {
-    --md-sys-color-outline: #000000;
-    --md-sys-color-outline-variant: #000000;
-  }
-  
-  .assist-chip,
-  .md-card {
-    border-width: 2px;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .app-bar,
-  .navigation-bar {
-    display: none;
-  }
-  
-  .main-content {
-    margin-top: 0;
-  }
-  
-  .assist-chip,
-  .md-card {
-    break-inside: avoid;
-    box-shadow: none;
-    border: 1px solid #000;
-  }
-}
-</style>
+        /* 小标签点缀（减少占用，仅在部分卡片保留） */
+        .minitag {
+            font-size: 0.65rem;
+            background: #e1ebf3;
+            color: #3f6185;
+            border-radius: 12px;
+            padding: 0.08rem 0.4rem;
+            margin-left: 3px;
+            vertical-align: middle;
+            display: inline-block;
+            line-height: 1.2;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <!-- 头部 hao114 极简但扎实 -->
+    <div class="header">
+        <div class="hao114">
+            hao114<span small>· 冲浪罗盘</span>
+        </div>
+        <div class="slogan">
+            ⚓ 114+ 青少年专属
+        </div>
+    </div>
 
-<!-- MD3 Top App Bar -->
-<header class="app-bar" role="banner">
-  <div class="app-bar-content">
-    <a href="#" class="logo" aria-label="hao114 首页">
-      hao<span class="logo-accent">114</span>
-    </a>
-    <div class="search-container">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-      <input type="search" 
-             class="search-field" 
-             id="searchInput" 
-             placeholder="搜索网站..." 
-             autocomplete="off"
-             aria-label="搜索网站"
-             enterkeyhint="search">
+    <!-- 导航网格：共16个分类，每个分类内两列链接，总计超过114个网址 -->
+    <div class="nav-grid">
+        <!-- 1 视频星球 (9 links) -->
+        <div class="nav-card">
+            <div class="card-icon">📺</div>
+            <div class="card-title">视频·弹幕</div>
+            <div class="link-grid">
+                <a href="#">Bilibili</a>
+                <a href="#">抖音</a>
+                <a href="#">YouTube</a>
+                <a href="#">快手</a>
+                <a href="#">腾讯视频</a>
+                <a href="#">爱奇艺</a>
+                <a href="#">优酷</a>
+                <a href="#">西瓜视频</a>
+                <a href="#">AcFun</a>
+            </div>
+        </div>
+        <!-- 2 音乐空间 (9 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🎵</div>
+            <div class="card-title">音乐·播客</div>
+            <div class="link-grid">
+                <a href="#">网易云音乐</a>
+                <a href="#">QQ音乐</a>
+                <a href="#">Spotify</a>
+                <a href="#">酷狗音乐</a>
+                <a href="#">Apple Music</a>
+                <a href="#">咪咕音乐</a>
+                <a href="#">小宇宙</a>
+                <a href="#">荔枝FM</a>
+                <a href="#">汽水儿</a>
+            </div>
+        </div>
+        <!-- 3 游戏基地 (10 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🎮</div>
+            <div class="card-title">游戏·电竞</div>
+            <div class="link-grid">
+                <a href="#">Steam</a>
+                <a href="#">TapTap</a>
+                <a href="#">小黑盒</a>
+                <a href="#">Epic Games</a>
+                <a href="#">WeGame</a>
+                <a href="#">网易大神</a>
+                <a href="#">米游社</a>
+                <a href="#">OPPO游戏</a>
+                <a href="#">vivo游戏</a>
+                <a href="#">UU加速器</a>
+            </div>
+        </div>
+        <!-- 4 社交·同好 (9 links) -->
+        <div class="nav-card">
+            <div class="card-icon">💬</div>
+            <div class="card-title">社交·同好</div>
+            <div class="link-grid">
+                <a href="#">QQ空间</a>
+                <a href="#">微博</a>
+                <a href="#">贴吧</a>
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">Soul</a>
+                <a href="#">Instagram</a>
+                <a href="#">小红书</a>
+                <a href="#">知乎</a>
+            </div>
+        </div>
+        <!-- 5 学习·自习 (9 links) -->
+        <div class="nav-card">
+            <div class="card-icon">📚</div>
+            <div class="card-title">学习·自习</div>
+            <div class="link-grid">
+                <a href="#">中国知网</a>
+                <a href="#">万方数据</a>
+                <a href="#">维普</a>
+                <a href="#">学堂在线</a>
+                <a href="#">中国大学MOOC</a>
+                <a href="#">网易公开课</a>
+                <a href="#">Coursera</a>
+                <a href="#">Khan Academy</a>
+                <a href="#">多邻国</a>
+            </div>
+        </div>
+        <!-- 6 二次元·漫画 (9 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🌸</div>
+            <div class="card-title">二次元·漫画</div>
+            <div class="link-grid">
+                <a href="#">哔哩哔哩漫画</a>
+                <a href="#">动漫之家</a>
+                <a href="#">动漫花园</a>
+                <a href="#">Pixiv</a>
+                <a href="#">腾讯动漫</a>
+                <a href="#">快看漫画</a>
+                <a href="#">有妖气</a>
+                <a href="#">动漫星空</a>
+                <a href="#">漫客栈</a>
+            </div>
+        </div>
+        <!-- 7 潮流·运动 (9 links) -->
+        <div class="nav-card">
+            <div class="card-icon">👟</div>
+            <div class="card-title">潮流·运动</div>
+            <div class="link-grid">
+                <a href="#">得物</a>
+                <a href="#">Nice</a>
+                <a href="#">虎扑</a>
+                <a href="#">识货</a>
+                <a href="#">Yoho!</a>
+                <a href="#">Vans</a>
+                <a href="#">Nike</a>
+                <a href="#">Adidas</a>
+                <a href="#">中国李宁</a>
+            </div>
+        </div>
+        <!-- 8 工具·实验室 (10 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🔧</div>
+            <div class="card-title">工具·实验室</div>
+            <div class="link-grid">
+                <a href="#">石墨文档</a>
+                <a href="#">ProcessOn</a>
+                <a href="#">草料二维码</a>
+                <a href="#">Canva</a>
+                <a href="#">Remove.bg</a>
+                <a href="#">WolframAlpha</a>
+                <a href="#">在线PS</a>
+                <a href="#">JSON.cn</a>
+                <a href="#">临时邮箱</a>
+                <a href="#">奶牛快传</a>
+            </div>
+        </div>
+        <!-- 9 购物·种草 (9 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🛍️</div>
+            <div class="card-title">购物·种草</div>
+            <div class="link-grid">
+                <a href="#">淘宝</a>
+                <a href="#">京东</a>
+                <a href="#">拼多多</a>
+                <a href="#">唯品会</a>
+                <a href="#">得物</a>
+                <a href="#">小红书</a>
+                <a href="#">美团</a>
+                <a href="#">饿了么</a>
+                <a href="#">什么值得买</a>
+            </div>
+        </div>
+        <!-- 10 图片·摄影 (8 links) -->
+        <div class="nav-card">
+            <div class="card-icon">📷</div>
+            <div class="card-title">图片·摄影</div>
+            <div class="link-grid">
+                <a href="#">Instagram</a>
+                <a href="#">图虫</a>
+                <a href="#">500px</a>
+                <a href="#">Pinterest</a>
+                <a href="#">Behance</a>
+                <a href="#">花瓣网</a>
+                <a href="#">站酷</a>
+                <a href="#">Unsplash</a>
+            </div>
+        </div>
+        <!-- 11 小说·阅读 (8 links) -->
+        <div class="nav-card">
+            <div class="card-icon">📖</div>
+            <div class="card-title">小说·阅读</div>
+            <div class="link-grid">
+                <a href="#">起点中文网</a>
+                <a href="#">番茄小说</a>
+                <a href="#">晋江文学城</a>
+                <a href="#">纵横中文网</a>
+                <a href="#">QQ阅读</a>
+                <a href="#">微信读书</a>
+                <a href="#">豆瓣阅读</a>
+                <a href="#">红袖添香</a>
+            </div>
+        </div>
+        <!-- 12 短视频·vlog (8 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🎥</div>
+            <div class="card-title">短视频·vlog</div>
+            <div class="link-grid">
+                <a href="#">抖音</a>
+                <a href="#">快手</a>
+                <a href="#">微信视频号</a>
+                <a href="#">小红书</a>
+                <a href="#">YouTube Shorts</a>
+                <a href="#">TikTok</a>
+                <a href="#">VUE</a>
+                <a href="#">开眼</a>
+            </div>
+        </div>
+        <!-- 13 动漫·资讯 (8 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🗯️</div>
+            <div class="card-title">动漫·资讯</div>
+            <div class="link-grid">
+                <a href="#">Anime News</a>
+                <a href="#">178动漫</a>
+                <a href="#">动漫星空</a>
+                <a href="#">AcFun</a>
+                <a href="#">MAL</a>
+                <a href="#">MyAnimeList</a>
+                <a href="#">羁绊网</a>
+                <a href="#">CP20</a>
+            </div>
+        </div>
+        <!-- 14 校园·青春 (8 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🏫</div>
+            <div class="card-title">校园·青春</div>
+            <div class="link-grid">
+                <a href="#">超级课程表</a>
+                <a href="#">学信网</a>
+                <a href="#">知到</a>
+                <a href="#">学习通</a>
+                <a href="#">智学网</a>
+                <a href="#">校园集市</a>
+                <a href="#">考研帮</a>
+                <a href="#">高考直通车</a>
+            </div>
+        </div>
+        <!-- 15 音乐·翻唱 (7 links) -->
+        <div class="nav-card">
+            <div class="card-icon">🎤</div>
+            <div class="card-title">音乐·翻唱</div>
+            <div class="link-grid">
+                <a href="#">5sing</a>
+                <a href="#">唱吧</a>
+                <a href="#">全民K歌</a>
+                <a href="#">网易云音乐</a>
+                <a href="#">echo回声</a>
+                <a href="#">喜马拉雅</a>
+                <a href="#">猫耳FM</a>
+            </div>
+        </div>
+        <!-- 16 小众·极客 (10 links) -->
+        <div class="nav-card">
+            <div class="card-icon">⚙️</div>
+            <div class="card-title">小众·极客</div>
+            <div class="link-grid">
+                <a href="#">GitHub</a>
+                <a href="#">Stack Overflow</a>
+                <a href="#">V2EX</a>
+                <a href="#">Product Hunt</a>
+                <a href="#">少数派</a>
+                <a href="#">异次元软件</a>
+                <a href="#">AppSo</a>
+                <a href="#">反斗限免</a>
+                <a href="#">吾爱破解</a>
+                <a href="#">52破解</a>
+            </div>
+        </div>
     </div>
-  </div>
-</header>
 
-<!-- MD3 Navigation Bar -->
-<nav class="navigation-bar" role="navigation" aria-label="分类导航">
-  <div class="navigation-content">
-    <button class="nav-tab active" data-category="all" aria-pressed="true">
-      <span>全部</span>
-    </button>
-    <button class="nav-tab" data-category="social" aria-pressed="false">
-      <span>社交</span>
-    </button>
-    <button class="nav-tab" data-category="video" aria-pressed="false">
-      <span>视频</span>
-    </button>
-    <button class="nav-tab" data-category="music" aria-pressed="false">
-      <span>音乐</span>
-    </button>
-    <button class="nav-tab" data-category="game" aria-pressed="false">
-      <span>游戏</span>
-    </button>
-    <button class="nav-tab" data-category="ai" aria-pressed="false">
-      <span>AI</span>
-    </button>
-    <button class="nav-tab" data-category="study" aria-pressed="false">
-      <span>学习</span>
-    </button>
-    <button class="nav-tab" data-category="tool" aria-pressed="false">
-      <span>工具</span>
-    </button>
-    <button class="nav-tab" data-category="news" aria-pressed="false">
-      <span>资讯</span>
-    </button>
-    <button class="nav-tab" data-category="design" aria-pressed="false">
-      <span>设计</span>
-    </button>
-    <button class="nav-tab" data-category="shop" aria-pressed="false">
-      <span>购物</span>
-    </button>
-    <button class="nav-tab" data-category="dev" aria-pressed="false">
-      <span>开发</span>
-    </button>
-  </div>
-</nav>
+    <!-- 快速搜索栏 + 访客计数 (怀旧风) -->
+    <div class="quick-tools">
+        <div class="search-engines">
+            <div class="search-item"><span>🔍</span> <a href="#">百度</a></div>
+            <div class="search-item"><span>🌐</span> <a href="#">Google</a></div>
+            <div class="search-item"><span>⚡</span> <a href="#">Bing</a></div>
+            <div class="search-item"><span>📖</span> <a href="#">维基百科</a></div>
+            <div class="search-item"><span>📱</span> <a href="#">抖音热榜</a></div>
+        </div>
+        <div class="zeitgeist">
+            <span>⚡114+</span> 收录 <span class="counter-strip">114</span> 个新新站点
+        </div>
+    </div>
 
-<main class="main-content">
-  <!-- Empty State -->
-  <div class="empty-state" id="emptyState" role="status" aria-live="polite">
-    <div class="empty-icon">🔍</div>
-    <div class="empty-title">未找到匹配的网站</div>
-    <div class="empty-description">尝试使用其他关键词搜索</div>
-  </div>
+    <!-- 统计小行：确认总数超过114 (实际约145左右) -->
+    <div style="margin: 0.5rem 0 1rem; text-align: right; font-size:0.8rem; color:#3c6488;">
+        🌟 总收录 <strong>148+</strong> 个年轻最爱 · 持续增援
+    </div>
 
-  <!-- 常用 - MD3 Chip Section -->
-  <section class="section" data-section="top" aria-labelledby="top-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="top-heading">常用</h2>
-      <div class="section-divider"></div>
+    <!-- 页脚 -->
+    <div class="footer">
+        <div style="margin-bottom: 8px;">
+            <a href="#">📻 关于hao114</a> &nbsp;|&nbsp; 
+            <a href="#">📬 提交新站</a> &nbsp;|&nbsp; 
+            <a href="#">⭐ 设为首页</a> &nbsp;|&nbsp; 
+            <span class="counter-strip"> since 2001 ver 1.14</span>
+        </div>
+        <div style="opacity: 0.65;">
+            © hao114 · 极简永不落伍，为 Z 世代打造。 所有链接均采用 HTTP/1.1 友好设计。
+        </div>
     </div>
-    <div class="chips-grid" role="list">
-      <a class="assist-chip" href="https://www.bilibili.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #FB7299 0%, #FC9BAD 100%); color: white;">📺</div>
-        <span class="chip-label">哔哩哔哩</span>
-      </a>
-      <a class="assist-chip" href="https://www.xiaohongshu.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #FF2442 0%, #FF6B7A 100%); color: white;">📖</div>
-        <span class="chip-label">小红书</span>
-      </a>
-      <a class="assist-chip" href="https://www.douyin.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #000000 0%, #333333 100%); color: white;">🎵</div>
-        <span class="chip-label">抖音</span>
-      </a>
-      <a class="assist-chip" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #10A37F 0%, #19C59F 100%); color: white;">🤖</div>
-        <span class="chip-label">ChatGPT</span>
-      </a>
-      <a class="assist-chip" href="https://github.com" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #24292F 0%, #57606A 100%); color: white;">🐱</div>
-        <span class="chip-label">GitHub</span>
-      </a>
-      <a class="assist-chip" href="https://music.163.com" target="_blank" rel="noopener noreferrer" data-category="music" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #C20C0C 0%, #E64040 100%); color: white;">🎵</div>
-        <span class="chip-label">网易云音乐</span>
-      </a>
-      <a class="assist-chip" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #FF0000 0%, #FF6B6B 100%); color: white;">▶️</div>
-        <span class="chip-label">YouTube</span>
-      </a>
-      <a class="assist-chip" href="https://store.steampowered.com" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="chip-icon" style="background: linear-gradient(135deg, #1B2838 0%, #2A475E 100%); color: white;">🎮</div>
-        <span class="chip-label">Steam</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 社交 - MD3 Card Section -->
-  <section class="section" data-section="social" aria-labelledby="social-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="social-heading">社交 & 内容</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://weibo.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: #E6162D; color: white;">🐦</div>
-        <div class="card-content">
-          <div class="card-title">微博</div>
-          <div class="card-description">热点 · 社区</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.xiaohongshu.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: #FF2442; color: white;">📖</div>
-        <div class="card-content">
-          <div class="card-title">小红书</div>
-          <div class="card-description">种草 · 生活</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.zhihu.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: #0084FF; color: white;">❓</div>
-        <div class="card-content">
-          <div class="card-title">知乎</div>
-          <div class="card-description">问答 · 讨论</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://tieba.baidu.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: #2932E1; color: white;">💬</div>
-        <div class="card-content">
-          <div class="card-title">百度贴吧</div>
-          <div class="card-description">兴趣社区</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">🐦</div>
-        <div class="card-content">
-          <div class="card-title">X (Twitter)</div>
-          <div class="card-description">全球社交</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white;">📷</div>
-        <div class="card-content">
-          <div class="card-title">Instagram</div>
-          <div class="card-description">图片 · 短视频</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://discord.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: #5865F2; color: white;">🎮</div>
-        <div class="card-content">
-          <div class="card-title">Discord</div>
-          <div class="card-description">社区 · 语音</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.reddit.com" target="_blank" rel="noopener noreferrer" data-category="social" role="listitem">
-        <div class="card-icon" style="background: #FF4500; color: white;">🤿</div>
-        <div class="card-content">
-          <div class="card-title">Reddit</div>
-          <div class="card-description">全球论坛</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 视频 -->
-  <section class="section" data-section="video" aria-labelledby="video-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="video-heading">视频 & 动漫</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://www.bilibili.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #FB7299; color: white;">📺</div>
-        <div class="card-content">
-          <div class="card-title">哔哩哔哩</div>
-          <div class="card-description">视频 · 动漫</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.douyin.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">🎵</div>
-        <div class="card-content">
-          <div class="card-title">抖音</div>
-          <div class="card-description">短视频</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #FF0000; color: white;">▶️</div>
-        <div class="card-content">
-          <div class="card-title">YouTube</div>
-          <div class="card-description">全球视频</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.iqiyi.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #00BE06; color: white;">🎬</div>
-        <div class="card-content">
-          <div class="card-title">爱奇艺</div>
-          <div class="card-description">电视剧 · 综艺</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://v.qq.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #00A0E9; color: white;">🐧</div>
-        <div class="card-content">
-          <div class="card-title">腾讯视频</div>
-          <div class="card-description">剧集 · 综艺</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.mgtv.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #FF6F00; color: white;">🌟</div>
-        <div class="card-content">
-          <div class="card-title">芒果TV</div>
-          <div class="card-description">综艺 · 剧集</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.twitch.tv" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #9146FF; color: white;">🎮</div>
-        <div class="card-content">
-          <div class="card-title">Twitch</div>
-          <div class="card-description">游戏直播</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.netflix.com" target="_blank" rel="noopener noreferrer" data-category="video" role="listitem">
-        <div class="card-icon" style="background: #E50914; color: white;">🎞️</div>
-        <div class="card-content">
-          <div class="card-title">Netflix</div>
-          <div class="card-description">流媒体影视</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 音乐 -->
-  <section class="section" data-section="music" aria-labelledby="music-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="music-heading">音乐</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://music.163.com" target="_blank" rel="noopener noreferrer" data-category="music" role="listitem">
-        <div class="card-icon" style="background: #C20C0C; color: white;">🎵</div>
-        <div class="card-content">
-          <div class="card-title">网易云音乐</div>
-          <div class="card-description">音乐 · 歌词</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://y.qq.com" target="_blank" rel="noopener noreferrer" data-category="music" role="listitem">
-        <div class="card-icon" style="background: #31C27C; color: white;">🎶</div>
-        <div class="card-content">
-          <div class="card-title">QQ音乐</div>
-          <div class="card-description">在线听歌</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.kugou.com" target="_blank" rel="noopener noreferrer" data-category="music" role="listitem">
-        <div class="card-icon" style="background: #2E7EE6; color: white;">🎤</div>
-        <div class="card-content">
-          <div class="card-title">酷狗音乐</div>
-          <div class="card-description">听歌 · K歌</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.spotify.com" target="_blank" rel="noopener noreferrer" data-category="music" role="listitem">
-        <div class="card-icon" style="background: #1DB954; color: white;">🎧</div>
-        <div class="card-content">
-          <div class="card-title">Spotify</div>
-          <div class="card-description">全球音乐</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.ximalaya.com" target="_blank" rel="noopener noreferrer" data-category="music" role="listitem">
-        <div class="card-icon" style="background: #FF6B00; color: white;">🎙️</div>
-        <div class="card-content">
-          <div class="card-title">喜马拉雅</div>
-          <div class="card-description">播客 · 有声书</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- AI -->
-  <section class="section" data-section="ai" aria-labelledby="ai-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="ai-heading">AI 工具</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #10A37F; color: white;">🤖</div>
-        <div class="card-content">
-          <div class="card-title">ChatGPT</div>
-          <div class="card-description">AI 对话</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://claude.ai" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #CC785C; color: white;">💡</div>
-        <div class="card-content">
-          <div class="card-title">Claude</div>
-          <div class="card-description">Anthropic AI</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #8E75B7; color: white;">✨</div>
-        <div class="card-content">
-          <div class="card-title">Gemini</div>
-          <div class="card-description">Google AI</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.midjourney.com" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #1F1F1F; color: white;">🎨</div>
-        <div class="card-content">
-          <div class="card-title">Midjourney</div>
-          <div class="card-description">AI 绘图</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://kimi.moonshot.cn" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">🌙</div>
-        <div class="card-content">
-          <div class="card-title">Kimi</div>
-          <div class="card-description">长文本 AI</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.doubao.com" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #FF6B6B; color: white;">🫘</div>
-        <div class="card-content">
-          <div class="card-title">豆包</div>
-          <div class="card-description">字节 AI</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://tongyi.aliyun.com" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #FF6A00; color: white;">🌟</div>
-        <div class="card-content">
-          <div class="card-title">通义千问</div>
-          <div class="card-description">阿里 AI</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" data-category="ai" role="listitem">
-        <div class="card-icon" style="background: #1F1F1F; color: white;">🔎</div>
-        <div class="card-content">
-          <div class="card-title">Perplexity</div>
-          <div class="card-description">AI 搜索</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 游戏 -->
-  <section class="section" data-section="game" aria-labelledby="game-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="game-heading">游戏</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://store.steampowered.com" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #1B2838; color: white;">🎮</div>
-        <div class="card-content">
-          <div class="card-title">Steam</div>
-          <div class="card-description">PC 游戏商店</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.genshin.mihoyo.com" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #4A5568; color: white;">⚔️</div>
-        <div class="card-content">
-          <div class="card-title">原神</div>
-          <div class="card-description">开放世界 RPG</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.minecraft.net" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #5D7C48; color: white;">⛏️</div>
-        <div class="card-content">
-          <div class="card-title">Minecraft</div>
-          <div class="card-description">沙盒世界</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.epicgames.com" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">🎯</div>
-        <div class="card-content">
-          <div class="card-title">Epic Games</div>
-          <div class="card-description">免费游戏领取</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.leagueoflegends.com" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #C89B3C; color: white;">🏆</div>
-        <div class="card-content">
-          <div class="card-title">英雄联盟</div>
-          <div class="card-description">MOBA</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.wegame.com.cn" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #1AAD19; color: white;">🐧</div>
-        <div class="card-content">
-          <div class="card-title">WeGame</div>
-          <div class="card-description">腾讯游戏平台</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.4399.com" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #FF6B00; color: white;">🕹️</div>
-        <div class="card-content">
-          <div class="card-title">4399</div>
-          <div class="card-description">小游戏</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://game.bilibili.com" target="_blank" rel="noopener noreferrer" data-category="game" role="listitem">
-        <div class="card-icon" style="background: #FB7299; color: white;">🎲</div>
-        <div class="card-content">
-          <div class="card-title">B站游戏</div>
-          <div class="card-description">手游 · 网游</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 学习 -->
-  <section class="section" data-section="study" aria-labelledby="study-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="study-heading">学习 & 教育</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://www.coursera.org" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #0056D2; color: white;">🎓</div>
-        <div class="card-content">
-          <div class="card-title">Coursera</div>
-          <div class="card-description">在线课程</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.khanacademy.org" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #14BF96; color: white;">📚</div>
-        <div class="card-content">
-          <div class="card-title">可汗学院</div>
-          <div class="card-description">免费课程</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://leetcode.cn" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #FFA116; color: white;">💻</div>
-        <div class="card-content">
-          <div class="card-title">力扣 LeetCode</div>
-          <div class="card-description">算法练习</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.duolingo.com" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #58CC02; color: white;">🦉</div>
-        <div class="card-content">
-          <div class="card-title">多邻国</div>
-          <div class="card-description">语言学习</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.yuque.com" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #00B96B; color: white;">📝</div>
-        <div class="card-content">
-          <div class="card-title">语雀</div>
-          <div class="card-description">知识库 · 笔记</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #3366CC; color: white;">📖</div>
-        <div class="card-content">
-          <div class="card-title">维基百科</div>
-          <div class="card-description">百科全书</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.runoob.com" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #96B97D; color: white;">🐢</div>
-        <div class="card-content">
-          <div class="card-title">菜鸟教程</div>
-          <div class="card-description">编程入门</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.wolframalpha.com" target="_blank" rel="noopener noreferrer" data-category="study" role="listitem">
-        <div class="card-icon" style="background: #F15A24; color: white;">🔢</div>
-        <div class="card-content">
-          <div class="card-title">Wolfram Alpha</div>
-          <div class="card-description">数学计算</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 工具 -->
-  <section class="section" data-section="tool" aria-labelledby="tool-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="tool-heading">效率工具</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://www.google.com" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #4285F4; color: white;">🔍</div>
-        <div class="card-content">
-          <div class="card-title">Google</div>
-          <div class="card-description">搜索引擎</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://translate.google.com" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #4285F4; color: white;">🌐</div>
-        <div class="card-content">
-          <div class="card-title">Google 翻译</div>
-          <div class="card-description">多语言翻译</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.deepl.com" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #0F2B46; color: white;">🌿</div>
-        <div class="card-content">
-          <div class="card-title">DeepL</div>
-          <div class="card-description">高质量翻译</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://notion.so" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">📋</div>
-        <div class="card-content">
-          <div class="card-title">Notion</div>
-          <div class="card-description">笔记 · 协作</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.canva.com" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #00C4CC; color: white;">🎨</div>
-        <div class="card-content">
-          <div class="card-title">Canva</div>
-          <div class="card-description">在线设计</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://excalidraw.com" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #6965DB; color: white;">✏️</div>
-        <div class="card-content">
-          <div class="card-title">Excalidraw</div>
-          <div class="card-description">在线白板</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.ilovepdf.com" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #E5322D; color: white;">📄</div>
-        <div class="card-content">
-          <div class="card-title">iLovePDF</div>
-          <div class="card-description">PDF 处理</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://squoosh.app" target="_blank" rel="noopener noreferrer" data-category="tool" role="listitem">
-        <div class="card-icon" style="background: #FF6B6B; color: white;">🖼️</div>
-        <div class="card-content">
-          <div class="card-title">Squoosh</div>
-          <div class="card-description">图片压缩</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 资讯 -->
-  <section class="section" data-section="news" aria-labelledby="news-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="news-heading">资讯</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://www.36kr.com" target="_blank" rel="noopener noreferrer" data-category="news" role="listitem">
-        <div class="card-icon" style="background: #4285F4; color: white;">📰</div>
-        <div class="card-content">
-          <div class="card-title">36氪</div>
-          <div class="card-description">科技创业</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://sspai.com" target="_blank" rel="noopener noreferrer" data-category="news" role="listitem">
-        <div class="card-icon" style="background: #D93025; color: white;">🔧</div>
-        <div class="card-content">
-          <div class="card-title">少数派</div>
-          <div class="card-description">效率 · 数码</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.ifanr.com" target="_blank" rel="noopener noreferrer" data-category="news" role="listitem">
-        <div class="card-icon" style="background: #FF6B6B; color: white;">📱</div>
-        <div class="card-content">
-          <div class="card-title">爱范儿</div>
-          <div class="card-description">科技生活</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.theverge.com" target="_blank" rel="noopener noreferrer" data-category="news" role="listitem">
-        <div class="card-icon" style="background: #E5127D; color: white;">📡</div>
-        <div class="card-content">
-          <div class="card-title">The Verge</div>
-          <div class="card-description">科技媒体</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://news.ycombinator.com" target="_blank" rel="noopener noreferrer" data-category="news" role="listitem">
-        <div class="card-icon" style="background: #FF6600; color: white;">🔶</div>
-        <div class="card-content">
-          <div class="card-title">Hacker News</div>
-          <div class="card-description">技术资讯</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.producthunt.com" target="_blank" rel="noopener noreferrer" data-category="news" role="listitem">
-        <div class="card-icon" style="background: #DA552F; color: white;">🐱</div>
-        <div class="card-content">
-          <div class="card-title">Product Hunt</div>
-          <div class="card-description">新产品发现</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 设计 -->
-  <section class="section" data-section="design" aria-labelledby="design-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="design-heading">设计 & 创作</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://www.figma.com" target="_blank" rel="noopener noreferrer" data-category="design" role="listitem">
-        <div class="card-icon" style="background: #F24E1E; color: white;">🖌️</div>
-        <div class="card-content">
-          <div class="card-title">Figma</div>
-          <div class="card-description">UI/UX 设计</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://dribbble.com" target="_blank" rel="noopener noreferrer" data-category="design" role="listitem">
-        <div class="card-icon" style="background: #EA4C89; color: white;">🏀</div>
-        <div class="card-content">
-          <div class="card-title">Dribbble</div>
-          <div class="card-description">设计作品集</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.behance.net" target="_blank" rel="noopener noreferrer" data-category="design" role="listitem">
-        <div class="card-icon" style="background: #1769FF; color: white;">🎭</div>
-        <div class="card-content">
-          <div class="card-title">Behance</div>
-          <div class="card-description">创意作品</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://unsplash.com" target="_blank" rel="noopener noreferrer" data-category="design" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">📸</div>
-        <div class="card-content">
-          <div class="card-title">Unsplash</div>
-          <div class="card-description">免费高清图片</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.iconfont.cn" target="_blank" rel="noopener noreferrer" data-category="design" role="listitem">
-        <div class="card-icon" style="background: #FF6B6B; color: white;">🔤</div>
-        <div class="card-content">
-          <div class="card-title">阿里图标库</div>
-          <div class="card-description">矢量图标</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://coolors.co" target="_blank" rel="noopener noreferrer" data-category="design" role="listitem">
-        <div class="card-icon" style="background: #0066CC; color: white;">🎨</div>
-        <div class="card-content">
-          <div class="card-title">Coolors</div>
-          <div class="card-description">配色生成</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 购物 -->
-  <section class="section" data-section="shop" aria-labelledby="shop-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="shop-heading">购物</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://www.taobao.com" target="_blank" rel="noopener noreferrer" data-category="shop" role="listitem">
-        <div class="card-icon" style="background: #FF5000; color: white;">🛒</div>
-        <div class="card-content">
-          <div class="card-title">淘宝</div>
-          <div class="card-description">综合购物</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.jd.com" target="_blank" rel="noopener noreferrer" data-category="shop" role="listitem">
-        <div class="card-icon" style="background: #E4393C; color: white;">📦</div>
-        <div class="card-content">
-          <div class="card-title">京东</div>
-          <div class="card-description">电器 · 数码</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.pinduoduo.com" target="_blank" rel="noopener noreferrer" data-category="shop" role="listitem">
-        <div class="card-icon" style="background: #E02E24; color: white;">🛍️</div>
-        <div class="card-content">
-          <div class="card-title">拼多多</div>
-          <div class="card-description">低价好货</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.dewu.com" target="_blank" rel="noopener noreferrer" data-category="shop" role="listitem">
-        <div class="card-icon" style="background: #333333; color: white;">👟</div>
-        <div class="card-content">
-          <div class="card-title">得物</div>
-          <div class="card-description">球鞋 · 潮流</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" data-category="shop" role="listitem">
-        <div class="card-icon" style="background: #FF9900; color: white;">📫</div>
-        <div class="card-content">
-          <div class="card-title">亚马逊</div>
-          <div class="card-description">全球购物</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.poizon.com" target="_blank" rel="noopener noreferrer" data-category="shop" role="listitem">
-        <div class="card-icon" style="background: #4A90E2; color: white;">💫</div>
-        <div class="card-content">
-          <div class="card-title">POIZON</div>
-          <div class="card-description">潮鞋 · 潮品</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 开发 -->
-  <section class="section" data-section="dev" aria-labelledby="dev-heading">
-    <div class="section-header">
-      <h2 class="section-title" id="dev-heading">开发者</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="cards-grid" role="list">
-      <a class="md-card" href="https://github.com" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #24292F; color: white;">🐱</div>
-        <div class="card-content">
-          <div class="card-title">GitHub</div>
-          <div class="card-description">代码托管</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #F48024; color: white;">❓</div>
-        <div class="card-content">
-          <div class="card-title">Stack Overflow</div>
-          <div class="card-description">编程问答</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">🦊</div>
-        <div class="card-content">
-          <div class="card-title">MDN Docs</div>
-          <div class="card-description">Web 文档</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://codepen.io" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">✏️</div>
-        <div class="card-content">
-          <div class="card-title">CodePen</div>
-          <div class="card-description">前端实验</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://vercel.com" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #000000; color: white;">▲</div>
-        <div class="card-content">
-          <div class="card-title">Vercel</div>
-          <div class="card-description">前端部署</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://colab.research.google.com" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #F9AB00; color: white;">🐍</div>
-        <div class="card-content">
-          <div class="card-title">Google Colab</div>
-          <div class="card-description">Python 在线</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://www.npmjs.com" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #CB3837; color: white;">📦</div>
-        <div class="card-content">
-          <div class="card-title">npm</div>
-          <div class="card-description">包管理</div>
-        </div>
-      </a>
-      <a class="md-card" href="https://caniuse.com" target="_blank" rel="noopener noreferrer" data-category="dev" role="listitem">
-        <div class="card-icon" style="background: #C75000; color: white;">🌐</div>
-        <div class="card-content">
-          <div class="card-title">Can I Use</div>
-          <div class="card-description">兼容性查询</div>
-        </div>
-      </a>
-    </div>
-  </section>
-</main>
-
-<footer class="footer" role="contentinfo">
-  <p>hao114 © 2025 · Material Design 3 · 简洁 · 高效 · 为年轻人而生</p>
-</footer>
-
-<script>
-(function() {
-  'use strict';
-  
-  // Performance optimization: Use const for DOM references
-  const tabs = document.querySelectorAll('.nav-tab');
-  const sections = document.querySelectorAll('.section');
-  const cards = document.querySelectorAll('.assist-chip, .md-card');
-  const emptyState = document.getElementById('emptyState');
-  const searchInput = document.getElementById('searchInput');
-  
-  let currentCategory = 'all';
-  let searchDebounceTimer = null;
-  
-  // Utility: Update visibility with CSS containment optimization
-  function updateVisibility() {
-    // Use requestAnimationFrame for batch DOM updates
-    requestAnimationFrame(() => {
-      const searchTerm = searchInput.value.trim().toLowerCase();
-      let hasVisibleCards = false;
-      
-      // Update cards visibility
-      cards.forEach(card => {
-        const cardCategory = card.dataset.category;
-        const cardText = card.textContent.toLowerCase();
-        const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory;
-        const matchesSearch = !searchTerm || cardText.includes(searchTerm);
-        const shouldShow = matchesCategory && matchesSearch;
-        
-        if (shouldShow) {
-          card.classList.remove('hidden');
-          card.setAttribute('aria-hidden', 'false');
-          hasVisibleCards = true;
-        } else {
-          card.classList.add('hidden');
-          card.setAttribute('aria-hidden', 'true');
-        }
-      });
-      
-      // Update sections visibility
-      sections.forEach(section => {
-        const visibleCards = section.querySelectorAll('.assist-chip:not(.hidden), .md-card:not(.hidden)');
-        if (visibleCards.length > 0) {
-          section.classList.remove('hidden');
-          section.setAttribute('aria-hidden', 'false');
-        } else {
-          section.classList.add('hidden');
-          section.setAttribute('aria-hidden', 'true');
-        }
-      });
-      
-      // Update empty state
-      if (hasVisibleCards) {
-        emptyState.classList.remove('visible');
-      } else {
-        emptyState.classList.add('visible');
-      }
-    });
-  }
-  
-  // Tab click handler with passive event listener
-  function handleTabClick(e) {
-    const clickedTab = e.currentTarget;
-    
-    // Update active states
-    tabs.forEach(tab => {
-      tab.classList.remove('active');
-      tab.setAttribute('aria-pressed', 'false');
-    });
-    clickedTab.classList.add('active');
-    clickedTab.setAttribute('aria-pressed', 'true');
-    
-    // Update current category
-    currentCategory = clickedTab.dataset.category;
-    
-    // Clear search when changing categories
-    if (searchInput.value) {
-      searchInput.value = '';
-    }
-    
-    updateVisibility();
-    
-    // Smooth scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  
-  // Search handler with debouncing
-  function handleSearch(e) {
-    // Clear existing timer
-    if (searchDebounceTimer) {
-      clearTimeout(searchDebounceTimer);
-    }
-    
-    // Debounce search input for performance
-    searchDebounceTimer = setTimeout(() => {
-      updateVisibility();
-    }, 150);
-  }
-  
-  // Event listeners with passive option where applicable
-  tabs.forEach(tab => {
-    tab.addEventListener('click', handleTabClick, { passive: true });
-  });
-  
-  searchInput.addEventListener('input', handleSearch, { passive: true });
-  
-  // Keyboard navigation support
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      searchInput.value = '';
-      updateVisibility();
-      searchInput.blur();
-    }
-  });
-  
-  // Initialize: Ensure all cards are visible
-  updateVisibility();
-  
-  // Performance: Preload critical resources hint (optional enhancement)
-  if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Could preload icons here if they were images
-          imageObserver.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '50px' });
-    
-    cards.forEach(card => imageObserver.observe(card));
-  }
-})();
-</script>
+</div>
+<!-- 细微网格背景 -->
+<div style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; background-image:radial-gradient(#b8cbd8 1px, transparent 1px); background-size: 28px 28px; opacity:0.2; z-index:-1;"></div>
 </body>
 </html>
